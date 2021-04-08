@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <spref>
+    <horizsys>
+      <geodetic>
+        <denflat>1.0e+10</denflat>
+        <semiaxis>1560800.0</semiaxis>
+        <ellips>Europa</ellips>
+        <horizdn>0</horizdn>
+      </geodetic>
+      <planar>
+        <mapproj>
+          <equirect>
+            <longcm>180.0</longcm>
+            <stdparll>0.0</stdparll>
+            <fnorth>0.0</fnorth>
+            <feast>0.0</feast>
+          </equirect>
+          <mapprojn>Equirectangular EUROPA</mapprojn>
+        </mapproj>
+        <planci>
+          <plance>coordinate pair</plance>
+          <plandu>meters</plandu>
+          <coordrep>
+            <ordres>1570.0</ordres>
+            <absres>1570.0</absres>
+          </coordrep>
+        </planci>
+      </planar>
+    </horizsys>
+  </spref>
+  <idinfo>
+    <useconst>none</useconst>
+    <spdom>
+      <bounding>
+        <northbc>60.53051661180874</northbc>
+        <westbc>-129.940958886908</westbc>
+        <southbc>-7.248122813850102</southbc>
+        <eastbc>-33.93614576335102</eastbc>
+      </bounding>
+    </spdom>
+    <ptcontac>
+      <cntinfo>
+        <cntemail>mbland@usgs.gov</cntemail>
+        <cntvoice>928-556-7080</cntvoice>
+        <cntaddr>
+          <country>US</country>
+          <postal>86001</postal>
+          <state>AZ</state>
+          <city>Flagstaff</city>
+          <addrtype>mailing and physical</addrtype>
+          <address>2255 North Gemini Drive</address>
+        </cntaddr>
+        <cntpos>Research Space Scientist</cntpos>
+        <cntperp>
+          <cntorg>Southwest Region: ASTROGEOLOGY SCIENCE CENTER</cntorg>
+          <cntper>Michael T Bland</cntper>
+        </cntperp>
+      </cntinfo>
+    </ptcontac>
+    <datacred>NASA's Galileo Mission Solid State Imaging Team</datacred>
+    <citation>
+      <citeinfo>
+        <pubdate>2021</pubdate>
+        <origin>Michael Bland</origin>
+        <onlink>https://doi.org/10.5066/P9VKKK7C</onlink>
+        <title>Photogrammetrically Controlled Galileo Images of Europa</title>
+        <geoform>raster digital data</geoform>
+        <pubinfo>
+          <pubplace>Flagstaff, AZ</pubplace>
+          <publish>U.S. Geological Survey</publish>
+        </pubinfo>
+      </citeinfo>
+    </citation>
+    <descript>
+      <purpose>The Solid State Imager (SSI) on NASA's Galileo spacecraft provided the only moderate- to high-resolution images of Jupiter's moon, Europa. Unfortunately, uncertainty in the position and pointing of the spacecraft, as well as the position and orientation of Europa, when the images were acquired resulted in significant errors in image locations on the surface. The result of these errors is that images acquired during different Galileo orbits, or even at different times during the same orbit, are significantly misaligned (errors of up to 100 km on the surface). Previous work has generated global mosaics of Galileo and Voyager images that photogrammetrically control a subset of the available images to correct their relative locations. However, these efforts result in a &quot;static&quot; mosaic that is projected to a consistent pixel scale, and only use a fraction of the dataset (e.g., high resolution images are not included). The purpose of this current dataset is to increase the usability of the entire Galileo image set by photogrammetrically improving the locations of nearly every Europa image acquired by Galileo, and making them available to the community projected at their native resolution. The dataset therefore provides a set of individual images that can be used for scientific analysis and mission planning activities.</purpose>
+      <abstract>The Solid State Imager (SSI) on NASA's Galileo spacecraft acquired more than 500 images of Jupiter's moon, Europa, providing the only moderate- to high-resolution images of the moon's surface. These images vary from relatively low-resolution hemispherical imaging, to high-resolution targeted images that cover a small portion of the surface. Here we provide a set of 481 minimally processed, projected (level 2) Galileo images with photogrammetrically improved locations on Europa's surface. These individual images were subsequently used as input into a set of 92 observation mosaics that are also available through the USGS. These images provide users with nearly the entire Galileo Europa imaging dataset at its native resolution and with improved relative image locations.</abstract>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <sngdate>
+          <caldate>2021</caldate>
+        </sngdate>
+      </timeinfo>
+      <current>publication date</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>Irregular</update>
+    </status>
+    <keywords>
+      <theme>
+        <themekey>Planetary Science</themekey>
+        <themekey>Remote sensing images</themekey>
+        <themekey>Photogrammetry</themekey>
+        <themekey>Europa</themekey>
+        <themekey>Jupiter</themekey>
+        <themekey>Galileo</themekey>
+        <themekey>Solid State Imager</themekey>
+        <themekey>mosaic</themekey>
+        <themekt>USGS Thesaurus</themekt>
+      </theme>
+      <place>
+        <placekey>Europa</placekey>
+        <placekt>IAU Gazzeteer of Planetary Nomenclature</placekt>
+      </place>
+    </keywords>
+    <accconst>none</accconst>
+  </idinfo>
+  <dataqual>
+    <complete>The dataset includes 481 Galileo images with pixel scale between 5.7 m/pixel and 19532.4 m/pixel. 33 Galileo images of Europa (i.e., with Target=Europa in the label) were not included because 1) they contained no visible target (usually navigation or eclipse images), or 2) there was significant ghosting of the target, or 3) they were too noisy to identify features, or 4) they had very high emission angles and saturation levels (E19 eclipse images). These remaining images cover most of Europa's surface, with the exception of the polar regions.</complete>
+    <attracc>
+      <attraccr>No formal attribute accuracy tests were conducted</attraccr>
+    </attracc>
+    <logic>See Processing</logic>
+    <posacc>
+      <horizpa>
+        <horizpar>The root mean square (RMS) uncertainties in latitude, longitude, and radius are 246.6, 307.0, and 70.5 m, respectively. The total RMS uncertainty is 0.32 pixels.</horizpar>
+      </horizpa>
+    </posacc>
+    <lineage>
+      <procstep>
+        <proccont>
+          <cntinfo>
+            <cntfax>928-556-7014</cntfax>
+            <cntemail>lweller@usgs.gov</cntemail>
+            <cntvoice>928-556-7054</cntvoice>
+            <cntaddr>
+              <country>US</country>
+              <postal>86001</postal>
+              <state>AZ</state>
+              <city>Flagstaff</city>
+              <addrtype>mailing address</addrtype>
+              <address>2255 North Gemini Drive</address>
+            </cntaddr>
+            <cntpos>Cartographer</cntpos>
+            <cntperp>
+              <cntorg>U.S. Geological Survey, SOUTHWEST REGION</cntorg>
+              <cntper>Lynn A Weller</cntper>
+            </cntperp>
+          </cntinfo>
+        </proccont>
+        <procdate>2020</procdate>
+        <procdesc>We used the USGS' Integrated Software for Imagers and Spectrometers (ISIS) to perform minimal image processing of the Galileo images. After ingestion into ISIS we performed the standard calibration (ISIS gllssical) and applied a noise filter to remove radiation noise. The edges of each image were then trimmed. In some cases, image downlink from the spacecraft was interrupted mid-transmission and was completed later, with the result that lines from a single frame are split into multiple image files. In these cases we reconstructed the complete images by combining the multiple files into a single image by line/sample (using ISIS’ handmos application). In numerous cases portions of an image were never transmitted, and those images remain incomplete. In general, we chose the least compressed portions of the images to sit on top of more compressed portions; however, some exceptions were made in cases where the more-compressed portion was clearly of higher data quality.
+                    In order to improve the locations of Galileo and Voyager images we developed a global network of image tie points (a control network) using the ISIS. The control network is the input to the photogrammetric control process, in which a least-square bundle adjustment is performed to triangulate the ground coordinates (latitude, longitude, and radius) of each tie point and minimize location residuals globally. We used the ISIS jigsaw application to perform all of the bundle adjustments. In order to create a global control network for Europa images, we first generated three independent networks: a Voyager-only network, a Galileo-only network, and a bridge network that included key Voyager and Galileo images. Each of these networks was bundle adjusted separately to ensure a clean etwork (i.e., free from image mis-registrations). The three clean networks were then merged into a single network and bundled together to update images locations. The final bundle solution used constraints of 500 m in radius and 1 degree on camera angles. We adjusted the orientation of Europa (parameterized as the prime meridian offset W_o) to ensure the data are aligned with the IAU-defined coordinate system for Europa (i.e., the longitude of the crater Cilix must be at 182 degrees west, or 178 degrees east). ISIS was then used to project each image.
+                    Additional details are provided in Bland et al. 2021.</procdesc>
+      </procstep>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Galileo SSI Imaging Team</origin>
+            <pubdate>2009</pubdate>
+            <title>Galileo SSI Europa Images</title>
+            <geoform>remote-sensing image</geoform>
+            <pubinfo>
+              <pubplace>Space Science reviews</pubplace>
+              <publish>Kluwer Academis Publishers</publish>
+            </pubinfo>
+            <othercit>Belton et al. 1992</othercit>
+            <onlink>https://pds-imaging.jpl.nasa.gov/volumes/galileo.html#gllSSIREDR</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <rngdates>
+              <begdate>1996</begdate>
+              <enddate>2009</enddate>
+            </rngdates>
+          </timeinfo>
+          <srccurr>observed</srccurr>
+        </srctime>
+        <srccitea>Galileo SSI Europa Images</srccitea>
+        <srccontr>Raw Images</srccontr>
+      </srcinfo>
+    </lineage>
+  </dataqual>
+  <spdoinfo>
+    <rastinfo>
+      <vrtcount>1731</vrtcount>
+      <rowcount>1177</rowcount>
+      <colcount>1731</colcount>
+      <rasttype>Pixel</rasttype>
+    </rastinfo>
+    <direct>Raster</direct>
+  </spdoinfo>
+  <distinfo>
+    <distliab>Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. Although these data and associated metadata have been reviewed for accuracy and completeness and approved for release by the U.S. Geological Survey (USGS), no warranty expressed or implied is made regarding the display or utility of the data for other purposes, nor on all computer systems, nor shall the act of distribution constitute any such warranty. Any use of trade, firm, or product names is for descriptive purposes only and does not imply endorsement by the U.S. Government.</distliab>
+    <distrib>
+      <cntinfo>
+        <cntemail>mbland@usgs.gov</cntemail>
+        <cntvoice>928-556-7080</cntvoice>
+        <cntperp>
+          <cntper>Michael T Bland</cntper>
+          <cntorg>Southwest Region: ASTROGEOLOGY SCIENCE CENTER</cntorg>
+        </cntperp>
+        <cntpos>Research Space Scientist</cntpos>
+        <cntaddr>
+          <country>US</country>
+          <postal>86001</postal>
+          <state>AZ</state>
+          <city>Flagstaff</city>
+          <address>2255 North Gemini Drive</address>
+          <addrtype>mailing and physical</addrtype>
+        </cntaddr>
+      </cntinfo>
+    </distrib>
+    <stdorder>
+      <digform>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>https://s3.amazon.com/europa/individual_l2</networkr>
+              </networka>
+            </computer>
+          </onlinopt>
+        </digtopt>
+        <digtinfo>
+          <formname>Digital Data</formname>
+        </digtinfo>
+      </digform>
+      <fees>None</fees>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20210226</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Michael T Bland</cntper>
+          <cntorg>Southwest Region: ASTROGEOLOGY SCIENCE CENTER</cntorg>
+        </cntperp>
+        <cntpos>Research Space Scientist</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>2255 North Gemini Drive</address>
+          <city>Flagstaff</city>
+          <state>AZ</state>
+          <postal>86001</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>928-556-7080</cntvoice>
+        <cntemail>mbland@usgs.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+  </metainfo>
+</metadata>

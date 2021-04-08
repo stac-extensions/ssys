@@ -1,11 +1,11 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://stac-extensions.github.io/template/v1.0.0/schema.json#",
-  "title": "Template Extension",
-  "description": "STAC Template Extension for STAC Items and STAC Collections.",
+  "$id": "https://stac-extensions.github.io/ssys/v1.0.0/schema.json#",
+  "title": "SSYS Extension",
+  "description": "STAC SSYS Extension for STAC Items.",
   "oneOf": [
     {
-      "$comment": "This is the schema for STAC Items. Remove this object if this extension only applies to Collections.",
+      "$comment": "This is the Solar System schema for STAC Items.",
       "allOf": [
         {
           "type": "object",
@@ -19,63 +19,54 @@
               "const": "Feature"
             },
             "properties": {
-              "allOf": [
-                {
-                  "$comment": "Require fields here for item properties.",
-                  "required": [
-                    "template:new_field"
-                  ]
-                },
-                {
-                  "$ref": "#/definitions/fields"
+              "$ref": "#/definitions/fields"
+            },
+            "assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/fields"
+              }
+            }
+          },
+          "$comment": "The if-then-else below checks whether the ssys:targets is given in assets or not. If yes, allows ssys:targets in properties (else), otherwise, disallows sys:targets in properties (then).",
+          "if": {
+            "required": [
+              "assets"
+            ],
+            "properties": {
+              "assets": {
+                "type": "object",
+                "additionalProperties": {
+                  "properties": {
+                    "ssys:targets": false
+                  }
                 }
-              ]
-            },
-            "assets": {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/fields"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "properties": {
+                "properties": {
+                  "ssys:targets": false
+                }
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "properties": {
+                "properties": {
+                  "ssys:targets": {
+                    "$ref": "#/definitions/target"
+                  }
+                }
               }
             }
           }
         },
         {
           "$ref": "#/definitions/stac_extensions"
-        }
-      ]
-    },
-    {
-      "$comment": "This is the schema for STAC Collections. Remove this object if this extension does not define top-level fields for Collections AND can't be used in collection assets or item asset defintions.",
-      "allOf": [
-        {
-          "type": "object",
-          "required": [
-            "type"
-          ],
-          "properties": {
-            "type": {
-              "const": "Collection"
-            },
-            "assets": {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/fields"
-              }
-            },
-            "item_assets": {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/fields"
-              }
-            }
-          }
-        },
-        {
-          "$ref": "#/definitions/stac_extensions"
-        },
-        {
-          "$comment": "Remove this object if this extension does not define top-level fields for Collections.",
-          "$ref": "#/definitions/fields"
         }
       ]
     }
@@ -90,50 +81,35 @@
         "stac_extensions": {
           "type": "array",
           "contains": {
-            "const": "https://stac-extensions.github.io/template/v1.0.0/schema.json"
+            "const": "https://stac-extensions.github.io/ssys/v1.0.0/schema.json"
           }
         }
       }
     },
     "fields": {
-      "$comment": "Add your new fields here. Don't require them here, do that above in the item schema.",
-      "type": "object",
-      "properties": {
-        "template:new_field": {
-          "type": "string"
-        },
-        "template:xyz": {
-          "type": "object",
-          "required": [
-            "x",
-            "y",
-            "z"
-          ],
-          "properties": {
-            "x": {
-              "type": "number"
-            },
-            "y": {
-              "type": "number"
-            },
-            "z": {
-              "type": "number"
-            }
-          }
-        }, 
-        "template:another_one": {
-          "type": "array", 
-          "items": {
-            "type": "number"
-          }
+        "ssys:targets": {
+          "$ref": "#/definitions/bands"
         }
       },
       "patternProperties": {
-        "^(?!template:)": {
-          "$comment": "Above, change `template` to the prefix of this extension"
-        }
+        "^(?!ssys:)": {}
       },
       "additionalProperties": false
+    },
+    "targets": {
+    "title": "Targets",
+    "type": "array",
+    "minItems": 1,
+    "items": {
+      "title": "Target",
+      "type": "object",
+      "minProperties": 1,
+      "properties": {
+        "name": {
+          "title": "Name of the planetary body (e.g. Mars, Moon, Europa, Bennu)",
+          "type": "string"
+        }
+      }
     }
   }
 }
