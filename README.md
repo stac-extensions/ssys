@@ -11,21 +11,22 @@ This document explains the fields of the STAC Solar System (SSYS) Extension to a
 Mars Odyssey), visable images (e.g. Context Camera (CTX) aboard Mars Global Surveyor), or derived data sets like digital elevation models (DEM/DTM).
 
 - Examples:
-- [Item Example (Europa Galelio SSI)](examples/mars_THEMIS_IR-sample.json)
+- [Item Example (Europa Galileo SSI Image)](examples/s0349875139.equi.json)
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
-## Item Properties and Collection Fields
+## Item Properties
 
 | Field Name           | Type                      | Description |
 | -------------------- | ------------------------- | ----------- |
-| ssys:targets         | string                    | The name of the target body (e.g. Mars, Moon, Earth) |
+| ssys:targets         | array                     | Array to hold list of target bodies |
+| ssys:target          | string                    | The name of the target body (e.g. Mars, Moon, Earth) |
 
 ### Additional Field Information
 
 #### ssys:targets
 
-the field `sys:targets` allows to have one or more targets listed. This can happen for example if several moons are in the same view. For example this view of Ganymede and Jupiter in the same image as taken by the NASA mission Cassini [PIA02862](https://photojournal.jpl.nasa.gov/catalog/PIA02862).
+the field `sys:targets` allows to have one or more targets listed within an array. This can happen for example if several moons are in the same view. For example this view of Ganymede and Jupiter in the same image as taken by the NASA mission Cassini [PIA02862](https://photojournal.jpl.nasa.gov/catalog/PIA02862).
 
 ## Contributing
 
