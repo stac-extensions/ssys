@@ -9,7 +9,7 @@
 
 This document explains the fields of the STAC Solar System (SSYS) Extension to a STAC Item. SSYS covers data sets that represents an individual
 image, mosaic, or derived raster of a planetary body. Examples of SSYS data include sensors with visible, short-wave and mid-wave IR bands 
-(e.g., the THEMIS instrument on Mars Odyssey), visable images (e.g. Context Camera (CTX) aboard Mars Global Surveyor), or derived data sets 
+(e.g., the THEMIS instrument on Mars Odyssey), visible images (e.g. Context Camera (CTX) aboard Mars Global Surveyor), or derived data sets 
 like digital elevation models (DEM/DTM).
 
 - Examples:
