@@ -7,8 +7,10 @@
 - **Extension [Maturity Classification]:** Proposal
 - **Owner**: @thareUSGS
 
-This document explains the fields of the STAC Solar System (SSYS) Extension to a STAC Item. SSYS covers data sets that represents an individual image, mosaic, or derived raster of a planetary body. Examples of SSYS data include sensors with visible, short-wave and mid-wave IR bands (e.g., the THEMIS instrument on
-Mars Odyssey), visable images (e.g. Context Camera (CTX) aboard Mars Global Surveyor), or derived data sets like digital elevation models (DEM/DTM).
+This document explains the fields of the STAC Solar System (SSYS) Extension to a STAC Item. SSYS covers data sets that represents an individual
+image, mosaic, or derived raster of a planetary body. Examples of SSYS data include sensors with visible, short-wave and mid-wave IR bands 
+(e.g., the THEMIS instrument on Mars Odyssey), visable images (e.g. Context Camera (CTX) aboard Mars Global Surveyor), or derived data sets 
+like digital elevation models (DEM/DTM).
 
 - Examples:
 - [Item Example (Europa Galileo SSI Image)](examples/s0349875139.equi.json)
@@ -26,7 +28,9 @@ Mars Odyssey), visable images (e.g. Context Camera (CTX) aboard Mars Global Surv
 
 #### ssys:targets
 
-the field `sys:targets` allows to have one or more targets listed within an array. This can happen for example if several moons are in the same view. For example this view of Ganymede and Jupiter in the same image as taken by the NASA mission Cassini [PIA02862](https://photojournal.jpl.nasa.gov/catalog/PIA02862).
+the field `sys:targets` allows to have one or more targets listed within an array. This can happen for example if several moons are in the same 
+view. For example this view of Ganymede and Jupiter in the same image as taken by the NASA mission 
+Cassini [PIA02862](https://photojournal.jpl.nasa.gov/catalog/PIA02862).
 
 ## Contributing
 

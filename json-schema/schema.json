@@ -88,7 +88,7 @@
     },
     "fields": {
         "ssys:targets": {
-          "$ref": "#/definitions/bands"
+          "$ref": "#/definitions/targets"
         }
       },
       "patternProperties": {
@@ -106,7 +106,7 @@
       "minProperties": 1,
       "properties": {
         "name": {
-          "title": "Name of the planetary body (e.g. Mars, Moon, Europa, Bennu)",
+          "title": "Name of the planetary body (e.g. Mars, Moon, Europa, Bennu, Earth)",
           "type": "string"
         }
       }
