@@ -13,7 +13,9 @@ image, mosaic, or derived raster of a planetary body. Examples of SSYS data incl
 like digital elevation models (DEM/DTM).
 
 - Examples:
-- [Item Example (Europa Galileo SSI Image)](examples/s0349875139.equi.json)
+- [Catalog Example (Europa Galileo SSI Image)](examples/catalog.json)
+- [Collection Example (Europa Galileo SSI Image)](examples/collection.json)
+- [Item Example (Europa Galileo SSI Image)](examples/s0349875139.equi.photr-cog.json)
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 

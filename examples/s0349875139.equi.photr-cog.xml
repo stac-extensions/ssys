@@ -3,7 +3,7 @@
   <spref>
     <horizsys>
       <geodetic>
-        <denflat>1.0e+10</denflat>
+        <denflat>1e-06</denflat>
         <semiaxis>1560800.0</semiaxis>
         <ellips>Europa</ellips>
         <horizdn>0</horizdn>
@@ -16,7 +16,7 @@
             <fnorth>0.0</fnorth>
             <feast>0.0</feast>
           </equirect>
-          <mapprojn>Equirectangular EUROPA</mapprojn>
+          <mapprojn>Equirectangular</mapprojn>
         </mapproj>
         <planci>
           <plance>coordinate pair</plance>
@@ -34,9 +34,9 @@
     <spdom>
       <bounding>
         <northbc>60.53051661180874</northbc>
-        <westbc>-129.940958886908</westbc>
+        <westbc>50.05904111309201</westbc>
         <southbc>-7.248122813850102</southbc>
-        <eastbc>-33.93614576335102</eastbc>
+        <eastbc>146.06385423664898</eastbc>
       </bounding>
     </spdom>
     <ptcontac>
@@ -68,7 +68,7 @@
         <geoform>raster digital data</geoform>
         <pubinfo>
           <pubplace>Flagstaff, AZ</pubplace>
-          <publish>U.S. Geological Survey</publish>
+          <publish>U. S. Geological Survey</publish>
         </pubinfo>
       </citeinfo>
     </citation>
@@ -142,7 +142,7 @@
         </proccont>
         <procdate>2020</procdate>
         <procdesc>We used the USGS' Integrated Software for Imagers and Spectrometers (ISIS) to perform minimal image processing of the Galileo images. After ingestion into ISIS we performed the standard calibration (ISIS gllssical) and applied a noise filter to remove radiation noise. The edges of each image were then trimmed. In some cases, image downlink from the spacecraft was interrupted mid-transmission and was completed later, with the result that lines from a single frame are split into multiple image files. In these cases we reconstructed the complete images by combining the multiple files into a single image by line/sample (using ISIS’ handmos application). In numerous cases portions of an image were never transmitted, and those images remain incomplete. In general, we chose the least compressed portions of the images to sit on top of more compressed portions; however, some exceptions were made in cases where the more-compressed portion was clearly of higher data quality.
-                    In order to improve the locations of Galileo and Voyager images we developed a global network of image tie points (a control network) using the ISIS. The control network is the input to the photogrammetric control process, in which a least-square bundle adjustment is performed to triangulate the ground coordinates (latitude, longitude, and radius) of each tie point and minimize location residuals globally. We used the ISIS jigsaw application to perform all of the bundle adjustments. In order to create a global control network for Europa images, we first generated three independent networks: a Voyager-only network, a Galileo-only network, and a bridge network that included key Voyager and Galileo images. Each of these networks was bundle adjusted separately to ensure a clean etwork (i.e., free from image mis-registrations). The three clean networks were then merged into a single network and bundled together to update images locations. The final bundle solution used constraints of 500 m in radius and 1 degree on camera angles. We adjusted the orientation of Europa (parameterized as the prime meridian offset W_o) to ensure the data are aligned with the IAU-defined coordinate system for Europa (i.e., the longitude of the crater Cilix must be at 182 degrees west, or 178 degrees east). ISIS was then used to project each image.
+                    In order to improve the locations of Galileo and Voyager images we developed a global network of image tie points (a control network) using the ISIS. The control network is the input to the photogrammetric control process, in which a least-square bundle adjustment is performed to triangulate the ground coordinates (latitude, longitude, and radius) of each tie point and minimize location residuals globally. We used the ISIS jigsaw application to perform all of the bundle adjustments. In order to create a global control network for Europa images, we first generated three independent networks: a Voyager-only network, a Galileo-only network, and a bridgenetwork that included key Voyager and Galileo images. Each of these networks was bundle adjusted separately to ensure a cleannetwork (i.e., free from image mis-registrations). The three clean networks were then merged into a single network and bundled together to update images locations. The final bundle solution used constraints of 500 m in radius and 1 degree on camera angles. We adjusted the orientation of Europa (parameterized as the prime meridian offset W_o) to ensure the data are aligned with the IAU-defined coordinate system for Europa (i.e., the longitude of the crater Cilix must be at 182 degrees west, or 178 degrees east). ISIS was then used to project each image.
                     Additional details are provided in Bland et al. 2021.</procdesc>
       </procstep>
       <srcinfo>
@@ -211,7 +211,7 @@
           <onlinopt>
             <computer>
               <networka>
-                <networkr>https://s3.amazon.com/europa/individual_l2</networkr>
+                <networkr>https://asc-jupiter.s3-us-west-2.amazonaws.com/europa/galileo_voyager/controlled_images/</networkr>
               </networka>
             </computer>
           </onlinopt>
