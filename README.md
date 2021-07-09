@@ -1,7 +1,7 @@
 # Solar System Extension Specification
 
 - **Title:** Solar System
-- **Identifier:** <https://stac-extensions.github.io/ssys/v1.0.0/schema.json>
+- **Identifier:** <https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json>
 - **Field Name Prefix:** ssys
 - **Scope:** Item
 - **Extension [Maturity Classification]:** Proposal
