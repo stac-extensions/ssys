@@ -98,6 +98,7 @@
     },
     "targets": {
     "title": "Targets",
+    "description": "Array of strings to hold list of target bodies (e.g. Mars, Moon, Earth)",
     "type": "array",
     "minItems": 1,
     "items": {
