@@ -15,7 +15,7 @@ like digital elevation models (DEM/DTM).
 - Examples:
 - [Catalog Example (Europa Galileo SSI Image)](examples/catalog.json)
 - [Collection Example (Europa Galileo SSI Image)](examples/collection.json)
-- [Item Example (Europa Galileo SSI Image)](examples/s0349875139.equi.photr-cog.json)
+- [Item Example (Europa Galileo SSI Image)](examples/item.json)
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
