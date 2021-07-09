@@ -1,6 +1,11 @@
 {
     "type": "Feature",
     "stac_version": "1.0.0-beta.2",
+    "stac_extensions": [
+      "projection",
+      "datacube",
+      "https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json"
+    ],
     "id": "s0349875139.equi.photr-cog",
     "properties": {
       "title": "Absolutely Controlled Image Mosaic; Europa; s0349875139.equi.photr",
@@ -9,20 +14,23 @@
       "instruments": [
         "Voyager I ISS, Voyager II ISS, Galileo SSI"
       ],
+      "ssys:targets": {
+        "target": ["Europa"]
+      },
       "gsd": 1570,
       "license": "PDDL-1.0",
       "proj:wkt2": "\"PROJCS[\\\"Equirectangular EUROPA\\\",GEOGCS[\\\"GCS_EUROPA\\\",DATUM[\\\"D_EUROPA\\\",SPHEROID[\\\"EUROPA_localRadius\\\",1560800,0]],PRIMEM[\\\"Reference_Meridian\\\",0],UNIT[\\\"degree\\\",0.0174532925199433,AUTHORITY[\\\"EPSG\\\",\\\"9122\\\"]]],PROJECTION[\\\"Equirectangular\\\"],PARAMETER[\\\"standard_parallel_1\\\",0],PARAMETER[\\\"central_meridian\\\",180],PARAMETER[\\\"false_easting\\\",0],PARAMETER[\\\"false_northing\\\",0],UNIT[\\\"metre\\\",1,AUTHORITY[\\\"EPSG\\\",\\\"9001\\\"]],AXIS[\\\"Easting\\\",EAST],AXIS[\\\"Northing\\\",NORTH]]\"",
       "proj:projjson": {
         "$schema": "https://proj.org/schemas/v0.2/projjson.schema.json",
         "type": "ProjectedCRS",
-        "name": "unknown",
+        "name": "Equirectangular EUROPA",
         "base_crs": {
-          "name": "unknown",
+          "name": "GCS_EUROPA",
           "datum": {
             "type": "GeodeticReferenceFrame",
-            "name": "unknown",
+            "name": "D_EUROPA",
             "ellipsoid": {
-              "name": "unknown",
+              "name": "EUROPA_localRadius",
               "radius": 1560800
             },
             "prime_meridian": {
@@ -609,22 +617,22 @@
     "links": [
       {
         "rel": "self",
-        "href": "https://asc-jupiter.s3-us-west-2.amazonaws.com/europa/galileo_voyager/controlled_images/s0349875139.equi.photr-cog.json",
+        "href": "https://raw.githubusercontent.com/thareUSGS/ssys/main/examples/item.json",
         "type": "application/json"
       },
       {
         "rel": "parent",
-        "href": "https://asc-jupiter.s3-us-west-2.amazonaws.com/europa/galileo_voyager/controlled_images/collection.json",
+        "href": "https://raw.githubusercontent.com/thareUSGS/ssys/main/examples/collection.json",
         "type": "application/json"
       },
       {
         "rel": "root",
-        "href": "https://asc-jupiter.s3.us-west-2.amazonaws.com/catalog.json",
+        "href": "https://raw.githubusercontent.com/thareUSGS/ssys/main/examples/catalog.json",
         "type": "application/json"
       },
       {
         "rel": "collection",
-        "href": "https://asc-jupiter.s3-us-west-2.amazonaws.com/europa/galileo_voyager/controlled_images/collection.json",
+        "href": "https://raw.githubusercontent.com/thareUSGS/ssys/main/examples/collection.json",
         "type": "application/json"
       }
     ],
@@ -671,10 +679,6 @@
       -7.248122813850102,
       146.06385423664898,
       60.53051661180874
-    ],
-    "stac_extensions": [
-      "projection",
-      "datacube"
     ],
     "collection": "usgs_controlled_images_voy1_voy2_galileo"
   }
