@@ -101,15 +101,7 @@
     "type": "array",
     "minItems": 1,
     "items": {
-      "title": "Target",
-      "type": "object",
-      "minProperties": 1,
-      "properties": {
-        "name": {
-          "title": "Name of the planetary body (e.g. Mars, Moon, Europa, Bennu, Earth)",
-          "type": "string"
-        }
-      }
+      "type": "string"
     }
   }
 }
