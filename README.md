@@ -21,16 +21,17 @@ like digital elevation models (DEM/DTM).
 
 ## Item Properties
 
-| Field Name           | Type          | Description |
-| -------------------- | ------------- | ----------- |
-| ssys:targets         | [string]      | Array to hold list of target bodies (e.g. Mars, Moon, Earth) |
+| Field Name      | Type        | Description |
+| --------------- | ----------- | ----------- |
+| ssys:targets    | [string]    | Array to hold list of target bodies (e.g. Mars, Moon, Earth) |
 
 ### Additional Field Information
 
 #### ssys:targets
 
-the field `ssys:targets` allows to have one or more targets listed within an array of strings. This can happen for example if several moons are in the same view. For example this view of Ganymede and Jupiter in the same image as taken by the NASA mission 
-Cassini [PIA02862](https://photojournal.jpl.nasa.gov/catalog/PIA02862).
+the field `ssys:targets` allows to have one or more targets listed within an array of strings. This can 
+happen for example if several moons are in the same view. For example this view of Ganymede and Jupiter 
+in the same image as taken by the NASA mission Cassini [PIA02862](https://photojournal.jpl.nasa.gov/catalog/PIA02862).
 
 ## Contributing
 
