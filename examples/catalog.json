@@ -1,13 +1,7 @@
 {
     "id": "usgs_europa_catalog",
     "stac_version": "1.0.0-beta.2",
-    "stac_extensions": [
-      "https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json"
-    ],
     "description": "USGS provided analysis ready data for Europa. All collections within this catalog are GIS ready and served as cloud optimized Geotiffs. To visualize these data in ArcGIS Pro please [see this guide](https://opengislab.com/blog/2021/4/25/accessing-cloud-optimized-geotiffs-in-arcgis-pro), to access these data in QGIS please [see this guide](https://www.cogeo.org/qgis-tutorial.html).\n",
-    "ssys:targets": {
-      "target": ["Europa"]
-    },
     "links": [
       {
         "rel": "root",

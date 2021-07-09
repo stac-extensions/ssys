@@ -6,8 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0.0] - 2021-07-09
 ### Added
-
+- update to follow examples for other extensions using (e.g., using names like "item.json")
 ### Changed
 
 ### Deprecated
