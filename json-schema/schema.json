@@ -1,119 +1,109 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json#",
-  "title": "SSYS Extension",
-  "description": "STAC SSYS Extension for STAC Items.",
-  "oneOf": [
-    {
-      "allOf": [
-        {
-          "type": "object",
-          "required": [
-            "type",
-            "properties",
-            "assets"
-          ],
-          "properties": {
-            "type": {
-              "const": "Feature"
-            },
-            "properties": {
-              "allOf": [
-                {
-                  "required": [
-                    "ssys:targets"
-                  ]
-                },
-                {
-                  "$ref": "#/definitions/fields"
-                }
-              ]
-            },
-            "assets": {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/fields"
-              }
-            }
-          }
-        },
-        {
-          "$ref": "#/definitions/stac_extensions"
-        }
-      ]
-    },
-    {
-      "$comment": "This is the schema for STAC Collections. Remove this object if this extension does not define top-level fields for Collections AND can't be used in collection assets or item asset defintions.",
-      "allOf": [
-        {
-          "type": "object",
-          "required": [
-            "type"
-          ],
-          "properties": {
-            "type": {
-              "const": "Collection"
-            },
-            "assets": {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/fields"
-              }
-            },
-            "item_assets": {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/fields"
-              }
-            }
-          }
-        },
-        {
-          "$ref": "#/definitions/stac_extensions"
-        },
-        {
-          "$comment": "Remove this object if this extension does not define top-level fields for Collections.",
-          "$ref": "#/definitions/fields"
-        }
-      ]
-    }
-  ],
-  "definitions": {
-    "stac_extensions": {
-      "type": "object",
-      "required": [
-        "stac_extensions"
-      ],
-      "properties": {
-        "stac_extensions": {
-          "type": "array",
-          "contains": {
-            "const": "https://stac-extensions.github.io/template/v1.0.0/schema.json"
-          }
-        }
-      }
-    },
-    "fields": {
-      "$comment": "Add your new fields here. Don't require them here, do that above in the item schema.",
-      "type": "object",
-      "properties": {
-        "ssys:targets": {
-          "type": "array"
-        },
-        "ssys:targets": {
-          "type": "array", 
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "patternProperties": {
-        "^(?!ssys:)": {
-          "$comment": "Above, change `template` to the prefix of this extension"
-        }
-      },
-      "additionalProperties": false
-    }
-  }
-  }
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json#",
+	"title": "SSYS Extension",
+	"description": "STAC SSYS Extension for STAC Items.",
+	"oneOf": [{
+			"allOf": [{
+					"type": "object",
+					"required": [
+						"type",
+						"properties",
+						"assets"
+					],
+					"properties": {
+						"type": {
+							"const": "Feature"
+						},
+						"properties": {
+							"allOf": [{
+									"required": [
+										"ssys:targets"
+									]
+								},
+								{
+									"$ref": "#/definitions/fields"
+								}
+							]
+						},
+						"assets": {
+							"type": "object",
+							"additionalProperties": {
+								"$ref": "#/definitions/fields"
+							}
+						}
+					}
+				},
+				{
+					"$ref": "#/definitions/stac_extensions"
+				}
+			]
+		},
+		{
+			"$comment": "This is the schema for STAC Collections. Remove this object if this extension does not define top-level fields for Collections AND can't be used in collection assets or item asset defintions.",
+			"allOf": [{
+					"type": "object",
+					"required": [
+						"type"
+					],
+					"properties": {
+						"type": {
+							"const": "Collection"
+						},
+						"assets": {
+							"type": "object",
+							"additionalProperties": {
+								"$ref": "#/definitions/fields"
+							}
+						},
+						"item_assets": {
+							"type": "object",
+							"additionalProperties": {
+								"$ref": "#/definitions/fields"
+							}
+						}
+					}
+				},
+				{
+					"$ref": "#/definitions/stac_extensions"
+				},
+				{
+					"$comment": "Remove this object if this extension does not define top-level fields for Collections.",
+					"$ref": "#/definitions/fields"
+				}
+			]
+		}
+	],
+	"definitions": {
+		"stac_extensions": {
+			"type": "object",
+			"required": [
+				"stac_extensions"
+			],
+			"properties": {
+				"stac_extensions": {
+					"type": "array",
+					"contains": {
+						"const": "https://stac-extensions.github.io/template/v1.0.0/schema.json"
+					}
+				}
+			}
+		},
+		"fields": {
+			"$comment": "Add your new fields here. Don't require them here, do that above in the item schema.",
+			"type": "object",
+			"ssys:targets": {
+				"type": "array",
+				"items": {
+					"type": "string"
+				}
+			}
+		},
+		"patternProperties": {
+			"^(?!ssys:)": {
+				"$comment": "Above, change `template` to the prefix of this extension"
+			}
+		},
+		"additionalProperties": false
+	}
 }
