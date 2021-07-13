@@ -85,7 +85,7 @@
 				"stac_extensions": {
 					"type": "array",
 					"contains": {
-						"const": "https://raw.githubusercontent.com/thareUSGS/ssys/df30b3817e2480201ce817de082d00370d418599/json-schema/schema.json"
+						"const": "https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json"
 					}
 				}
 			}
