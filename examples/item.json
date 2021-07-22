@@ -1,10 +1,10 @@
 {
     "type": "Feature",
-    "stac_version": "1.0.0-beta.2",
+    "stac_version": "1.0.0",
     "stac_extensions": [
-      "projection",
-      "datacube",
-      "https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json"
+    "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/datacube/v1.0.0/schema.json",
+    "https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json"
     ],
     "id": "item",
     "properties": {
@@ -17,6 +17,7 @@
       "ssys:targets": ["Europa"],
       "gsd": 1570,
       "license": "PDDL-1.0",
+      "proj:epsg": null,
       "proj:wkt2": "\"PROJCS[\\\"Equirectangular EUROPA\\\",GEOGCS[\\\"GCS_EUROPA\\\",DATUM[\\\"D_EUROPA\\\",SPHEROID[\\\"EUROPA_localRadius\\\",1560800,0]],PRIMEM[\\\"Reference_Meridian\\\",0],UNIT[\\\"degree\\\",0.0174532925199433,AUTHORITY[\\\"EPSG\\\",\\\"9122\\\"]]],PROJECTION[\\\"Equirectangular\\\"],PARAMETER[\\\"standard_parallel_1\\\",0],PARAMETER[\\\"central_meridian\\\",180],PARAMETER[\\\"false_easting\\\",0],PARAMETER[\\\"false_northing\\\",0],UNIT[\\\"metre\\\",1,AUTHORITY[\\\"EPSG\\\",\\\"9001\\\"]],AXIS[\\\"Easting\\\",EAST],AXIS[\\\"Northing\\\",NORTH]]\"",
       "proj:projjson": {
         "$schema": "https://proj.org/schemas/v0.2/projjson.schema.json",
