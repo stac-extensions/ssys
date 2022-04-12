@@ -1,142 +1,338 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
-	"$id": "https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json#",
-	"title": "SSYS Extension",
-	"description": "STAC SSYS Extension for STAC Items, Catalogs, or Collections.",
-	"oneOf": [{
-			"$comment": "This is the schema for STAC Items.",
-			"allOf": [{
-					"type": "object",
-					"required": [
-						"type",
-						"properties",
-						"assets"
-					],
-					"properties": {
-						"type": {
-							"const": "Feature"
-						},
-						"properties": {
-							"allOf": [{
-									"required": [
-										"ssys:targets"
-									]
-								},
-								{
-									"$ref": "#/definitions/ssys"
-								}
-							]
-						},
-						"assets": {
-							"type": "object",
-							"additionalProperties": {
-								"$ref": "#/definitions/ssys"
-							}
-						}
-					}
-				},
-				{
-					"$ref": "#/definitions/stac_extensions"
-				}
-			]
-		},
-		{
-			"$comment": "This is the schema for STAC Collections.",
-			"allOf": [{
-					"type": "object",
-					"required": [
-						"type",
-						"ssys:targets"
-					],
-					"properties": {
-						"type": {
-							"const": "Collection"
-						},
-						"assets": {
-							"type": "object",
-							"additionalProperties": {
-								"$ref": "#/definitions/ssys"
-							}
-						},
-						"item_assets": {
-							"type": "object",
-							"additionalProperties": {
-								"$ref": "#/definitions/ssys"
-							}
-						}
-					}
-				},
-				{
-					"$ref": "#/definitions/stac_extensions"
-				},
-				{
-					"$ref": "#/definitions/ssys"
-				}
-			]
-		},
-		{
-			"$comment": "This is the schema for STAC Catalogs.",
-			"allOf": [{
-					"type": "object",
-					"required": [
-						"type",
-						"ssys:targets"
-					],
-					"properties": {
-						"type": {
-							"const": "Catalog"
-						},
-						"assets": {
-							"type": "object",
-							"additionalProperties": {
-								"$ref": "#/definitions/ssys"
-							}
-						},
-						"item_assets": {
-							"type": "object",
-							"additionalProperties": {
-								"$ref": "#/definitions/ssys"
-							}
-						}
-					}
-				},
-				{
-					"$ref": "#/definitions/stac_extensions"
-				},
-				{
-					"$ref": "#/definitions/ssys"
-				}
-			]
-		}
-	],
-	"definitions": {
-		"stac_extensions": {
-			"type": "object",
-			"required": [
-				"stac_extensions"
-			],
-			"properties": {
-				"stac_extensions": {
-					"type": "array",
-					"contains": {
-						"const": "https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json"
-					}
-				}
-			}
-		},
-		"ssys": {
-			"type": "object",
-			"properties": {
-				"ssys:targets": {
-					"type": "array",
-					"minItems": 1,
-					
-					"items": {
-      						"type": "string",
-      						"enum": ["Mercury","Venus","Earth","Moon","Mars","Phobos","Deimos","Eros","Gaspra","Ida","Dactyl","Mathilde","Linus","Petit-Prince","Jupiter","Io","Europa","Ganymede","Callisto","Amalthea","Himalia","Elara","Pasiphae","Sinope","Lysithea","Carme","Ananke","Leda","Thebe","Adrastea","Metis","Callirrhoe","Themisto","Megaclite","Taygete","Chaldene","Harpalyke","Kalyke","Iocaste","Erinome","Isonoe","Praxidike","Autonoe","Thyone","Hermippe","Aitne","Eurydome","Euanthe","Euporie","Orthosie","Sponde","Kale","Pasithee","Hegemone","Mneme","Aoede","Thelxinoe","Arche","Kallichore","Helike","Carpo","Eukelade","Cyllene","Kore","Herse","Jupiter LI","Jupiter LII","Dia","Eirene","Philophrosyne","Eupheme","Valetudo","Pandia","Ersa","Saturn","Mimas","Enceladus","Tethys","Dione","Rhea","Titan","Hyperion","Iapetus","Phoebe","Janus","Epimetheus","Helene","Telesto","Calypso","Atlas","Prometheus","Pandora","Pan","Ymir","Paaliaq","Tarvos","Ijiraq","Suttungr","Kiviuq","Mundilfari","Albiorix","Skathi","Erriapus","Siarnaq","Thrymr","Narvi","Methone","Pallene","Polydeuces","Daphnis","Aegir","Bebhionn","Bergelmir","Bestla","Farbauti","Fenrir","Fornjot","Hati","Hyrrokkin","Kari","Loge","Skoll","Surtur","Anthe","Jarnsaxa","Greip","Tarqeq","Aegaeon","Uranus","Ariel","Umbriel","Titania","Oberon","Miranda","Cordelia","Ophelia","Bianca","Cressida","Desdemona","Juliet","Portia","Rosalind","Belinda","Puck","Caliban","Sycorax","Prospero","Setebos","Stephano","Trinculo","Francisco","Margaret","Ferdinand","Perdita","Mab","Cupid","Neptune","Triton","Nereid","Naiad","Thalassa","Despina","Galatea","Larissa","Proteus","Halimede","Psamathe","Sao","Laomedeia","Neso","Hippocamp","Ceres","Pluto","Charon","Nix","Hydra","Kerberos","Styx","Haumea","Hi'iaka","Namaka","Eris","Dysnomia","Makemake"]
-    					},											
-				}
-			}
-		}
-	}
-}
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json#",
+  "title": "SSYS Extension",
+  "description": "STAC SSYS Extension for STAC Items, Catalogs, or Collections.",
+  "oneOf": [
+    {
+      "$comment": "This is the schema for STAC Items.",
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "properties",
+            "assets"
+          ],
+          "properties": {
+            "type": {
+              "const": "Feature"
+            },
+            "properties": {
+              "allOf": [
+                {
+                  "required": [
+                    "ssys:targets"
+                  ]
+                },
+                {
+                  "$ref": "#/definitions/ssys"
+                }
+              ]
+            },
+            "assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/ssys"
+              }
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/stac_extensions"
+        }
+      ]
+    },
+    {
+      "$comment": "This is the schema for STAC Collections.",
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "ssys:targets"
+          ],
+          "properties": {
+            "type": {
+              "const": "Collection"
+            },
+            "assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/ssys"
+              }
+            },
+            "item_assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/ssys"
+              }
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/stac_extensions"
+        },
+        {
+          "$ref": "#/definitions/ssys"
+        }
+      ]
+    },
+    {
+      "$comment": "This is the schema for STAC Catalogs.",
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "ssys:targets"
+          ],
+          "properties": {
+            "type": {
+              "const": "Catalog"
+            },
+            "assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/ssys"
+              }
+            },
+            "item_assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/ssys"
+              }
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/stac_extensions"
+        },
+        {
+          "$ref": "#/definitions/ssys"
+        }
+      ]
+    }
+  ],
+  "definitions": {
+    "stac_extensions": {
+      "type": "object",
+      "required": [
+        "stac_extensions"
+      ],
+      "properties": {
+        "stac_extensions": {
+          "type": "array",
+          "contains": {
+            "const": "https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json"
+          }
+        }
+      }
+    },
+    "ssys": {
+      "type": "object",
+      "properties": {
+        "ssys:targets": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$comment": "Official nomenclature from https://planetarynames.wr.usgs.gov/Page/Planets",
+                "type": "string",
+                "enum": [
+                  "Mercury",
+                  "Venus",
+                  "Earth",
+                  "Moon",
+                  "Mars",
+                  "Phobos",
+                  "Deimos",
+                  "Eros",
+                  "Gaspra",
+                  "Ida",
+                  "Dactyl",
+                  "Mathilde",
+                  "Linus",
+                  "Petit-Prince",
+                  "Jupiter",
+                  "Io",
+                  "Europa",
+                  "Ganymede",
+                  "Callisto",
+                  "Amalthea",
+                  "Himalia",
+                  "Elara",
+                  "Pasiphae",
+                  "Sinope",
+                  "Lysithea",
+                  "Carme",
+                  "Ananke",
+                  "Leda",
+                  "Thebe",
+                  "Adrastea",
+                  "Metis",
+                  "Callirrhoe",
+                  "Themisto",
+                  "Megaclite",
+                  "Taygete",
+                  "Chaldene",
+                  "Harpalyke",
+                  "Kalyke",
+                  "Iocaste",
+                  "Erinome",
+                  "Isonoe",
+                  "Praxidike",
+                  "Autonoe",
+                  "Thyone",
+                  "Hermippe",
+                  "Aitne",
+                  "Eurydome",
+                  "Euanthe",
+                  "Euporie",
+                  "Orthosie",
+                  "Sponde",
+                  "Kale",
+                  "Pasithee",
+                  "Hegemone",
+                  "Mneme",
+                  "Aoede",
+                  "Thelxinoe",
+                  "Arche",
+                  "Kallichore",
+                  "Helike",
+                  "Carpo",
+                  "Eukelade",
+                  "Cyllene",
+                  "Kore",
+                  "Herse",
+                  "Jupiter LI",
+                  "Jupiter LII",
+                  "Dia",
+                  "Eirene",
+                  "Philophrosyne",
+                  "Eupheme",
+                  "Valetudo",
+                  "Pandia",
+                  "Ersa",
+                  "Saturn",
+                  "Mimas",
+                  "Enceladus",
+                  "Tethys",
+                  "Dione",
+                  "Rhea",
+                  "Titan",
+                  "Hyperion",
+                  "Iapetus",
+                  "Phoebe",
+                  "Janus",
+                  "Epimetheus",
+                  "Helene",
+                  "Telesto",
+                  "Calypso",
+                  "Atlas",
+                  "Prometheus",
+                  "Pandora",
+                  "Pan",
+                  "Ymir",
+                  "Paaliaq",
+                  "Tarvos",
+                  "Ijiraq",
+                  "Suttungr",
+                  "Kiviuq",
+                  "Mundilfari",
+                  "Albiorix",
+                  "Skathi",
+                  "Erriapus",
+                  "Siarnaq",
+                  "Thrymr",
+                  "Narvi",
+                  "Methone",
+                  "Pallene",
+                  "Polydeuces",
+                  "Daphnis",
+                  "Aegir",
+                  "Bebhionn",
+                  "Bergelmir",
+                  "Bestla",
+                  "Farbauti",
+                  "Fenrir",
+                  "Fornjot",
+                  "Hati",
+                  "Hyrrokkin",
+                  "Kari",
+                  "Loge",
+                  "Skoll",
+                  "Surtur",
+                  "Anthe",
+                  "Jarnsaxa",
+                  "Greip",
+                  "Tarqeq",
+                  "Aegaeon",
+                  "Uranus",
+                  "Ariel",
+                  "Umbriel",
+                  "Titania",
+                  "Oberon",
+                  "Miranda",
+                  "Cordelia",
+                  "Ophelia",
+                  "Bianca",
+                  "Cressida",
+                  "Desdemona",
+                  "Juliet",
+                  "Portia",
+                  "Rosalind",
+                  "Belinda",
+                  "Puck",
+                  "Caliban",
+                  "Sycorax",
+                  "Prospero",
+                  "Setebos",
+                  "Stephano",
+                  "Trinculo",
+                  "Francisco",
+                  "Margaret",
+                  "Ferdinand",
+                  "Perdita",
+                  "Mab",
+                  "Cupid",
+                  "Neptune",
+                  "Triton",
+                  "Nereid",
+                  "Naiad",
+                  "Thalassa",
+                  "Despina",
+                  "Galatea",
+                  "Larissa",
+                  "Proteus",
+                  "Halimede",
+                  "Psamathe",
+                  "Sao",
+                  "Laomedeia",
+                  "Neso",
+                  "Hippocamp",
+                  "Ceres",
+                  "Pluto",
+                  "Charon",
+                  "Nix",
+                  "Hydra",
+                  "Kerberos",
+                  "Styx",
+                  "Haumea",
+                  "Hi'iaka",
+                  "Namaka",
+                  "Eris",
+                  "Dysnomia",
+                  "Makemake"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
