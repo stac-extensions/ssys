@@ -130,9 +130,11 @@
 				"ssys:targets": {
 					"type": "array",
 					"minItems": 1,
+					
 					"items": {
-						"type": "string"
-					}
+      						"type": "string",
+      						"enum": ["Mercury","Venus","Earth","Moon","Mars","Phobos","Deimos"] # https://planetarynames.wr.usgs.gov/Page/Planets
+    					},											
 				}
 			}
 		}
