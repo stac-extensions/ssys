@@ -25,6 +25,9 @@ elevation models (DEM/DTM).
 | Field Name      | Type        | Description |
 | --------------- | ----------- | ----------- |
 | ssys:targets    | [string]    | Array to hold list of target bodies (e.g. Mars, Moon, Earth) |
+| ssys:local_solar_time | number | The time of day relative to the sensor and sun position. |
+| ssys:Ls | The time of year for a Mars observation |
+| ssys:mars_year | The Mars year of the observation |
 
 ### Additional Field Information
 
@@ -33,6 +36,9 @@ elevation models (DEM/DTM).
 the field `ssys:targets` allows to have one or more targets listed within an array of strings. This can 
 happen, for example, if several moons are in the same view. As an example, this scene has both of Ganymede
 and Jupiter in the same image as taken by the NASA mission Cassini [PIA02862](https://photojournal.jpl.nasa.gov/catalog/PIA02862).
+
+#### ssys:local_solar_time, ssys:Ls, ssys:mars_year
+the fields `ssys:local_solar_time`, `ssys:Ls`, and `ssys:mars_year` allow for tracking of temporal information not tied to Earth standards. More information about the Martian Calendar is available [here](https://www.planetary.org/articles/mars-calendar).
 
 ## Contributing
 

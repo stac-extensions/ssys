@@ -133,6 +133,15 @@
 					"items": {
 						"type": "string"
 					}
+				},
+				"ssys:local_solar_time" : {
+					"type": "number"
+				},
+				"ssys:Ls" : {
+					"type": "number"
+				},
+				"ssys:mars_year" : {
+					"type": "number"
 				}
 			}
 		}
