@@ -179,6 +179,9 @@
     "ssys:start_mars_year": [
       25.0
     ],
+    "ssys:stop_mars_year": [
+      25.0
+    ],
     "ssys:start_Ls": [
       329.6312484112648
     ],
