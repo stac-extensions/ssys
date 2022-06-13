@@ -134,13 +134,22 @@
 						"type": "string"
 					}
 				},
-				"ssys:local_solar_time" : {
+				"ssys:start_local_solar_time" : {
 					"type": "number"
 				},
-				"ssys:Ls" : {
+				"ssys:stop_local_solar_time" : {
 					"type": "number"
 				},
-				"ssys:mars_year" : {
+				"ssys:start_Ls" : {
+					"type": "number"
+				},
+				"ssys:stop_Ls" : {
+					"type": "number"
+				},
+				"ssys:start_mars_year" : {
+					"type": "number"
+				},
+				"ssys:stop_mars_year" : {
 					"type": "number"
 				}
 			}

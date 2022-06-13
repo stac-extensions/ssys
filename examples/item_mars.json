@@ -1,0 +1,747 @@
+{
+  "type": "Feature",
+  "stac_version": "1.0.0",
+  "id": "I00816001RDR",
+  "properties": {
+    "start_datetime": "2002-02-19T18:59:36Z",
+    "end_datetime": "2002-02-19T19:01:44Z",
+    "title": "Observation: I00816001RDR",
+    "description": "This product is a Thermal Emission Imaging System (THEMIS) image from the 2001 Mars Odyssey orbiter mission that has been projected using updated information so that it is in a more correct location, as compared to the Mars Orbiter Laser Altimeter (MOLA) dataset. The image is projected at the full resolution of the THEMIS infrared image, which is approximately 100 meters/pixel. The updated pointing information is based on the final THEMIS control network developed by the USGS Astrogeology Science Center. This work seeks to provide a subset of THEMIS infrared dataset that is projected using updated CK and SPC kernels that were derived from the final THEMIS control network.  Only the THEMIS infrared images that were included in the network can be geometrically projected using the updated kernels, and so the images provided in this catalog are a subset of the entire THEMIS infrared dataset. These images will positively impact the work performed by a broad range of disciplines within the planetary science community. For example, controlled THEMIS images benefit geologic mapping efforts (superior basemap), landed science operations (site characterization and traverse planning), and orbital observation planning (precision targeting). The control networks that result constitute a framework for the precision cartographic control of existing and future higher spatial resolution data products (e.g. CTX), and will allow the registration of historical data sets to be improved.",
+    "missions": [
+      "Mars Odyssey"
+    ],
+    "instruments": [
+      "Thermal Emission Imaging System (THEMIS)"
+    ],
+    "gsd": 104.2748657095,
+    "license": "CC0-1.0",
+    "proj:epsg": null,
+    "proj:wkt2": "\"PROJCS[\\\"Equirectangular MARS\\\",GEOGCS[\\\"GCS_MARS\\\",DATUM[\\\"D_MARS\\\",SPHEROID[\\\"MARS_localRadius\\\",3396190,0]],PRIMEM[\\\"Reference_Meridian\\\",0],UNIT[\\\"degree\\\",0.0174532925199433,AUTHORITY[\\\"EPSG\\\",\\\"9122\\\"]]],PROJECTION[\\\"Equirectangular\\\"],PARAMETER[\\\"standard_parallel_1\\\",0],PARAMETER[\\\"central_meridian\\\",180],PARAMETER[\\\"false_easting\\\",0],PARAMETER[\\\"false_northing\\\",0],UNIT[\\\"metre\\\",1,AUTHORITY[\\\"EPSG\\\",\\\"9001\\\"]],AXIS[\\\"Easting\\\",EAST],AXIS[\\\"Northing\\\",NORTH]]\"",
+    "proj:projjson": {
+      "$schema": "https://proj.org/schemas/v0.4/projjson.schema.json",
+      "type": "ProjectedCRS",
+      "name": "unknown",
+      "base_crs": {
+        "name": "unknown",
+        "datum": {
+          "type": "GeodeticReferenceFrame",
+          "name": "unknown",
+          "ellipsoid": {
+            "name": "unknown",
+            "radius": 3396190
+          },
+          "prime_meridian": {
+            "name": "Reference meridian",
+            "longitude": 0
+          }
+        },
+        "coordinate_system": {
+          "subtype": "ellipsoidal",
+          "axis": [
+            {
+              "name": "Longitude",
+              "abbreviation": "lon",
+              "direction": "east",
+              "unit": "degree"
+            },
+            {
+              "name": "Latitude",
+              "abbreviation": "lat",
+              "direction": "north",
+              "unit": "degree"
+            }
+          ]
+        }
+      },
+      "conversion": {
+        "name": "unknown",
+        "method": {
+          "name": "Equidistant Cylindrical (Spherical)",
+          "id": {
+            "authority": "EPSG",
+            "code": 1029
+          }
+        },
+        "parameters": [
+          {
+            "name": "Latitude of 1st standard parallel",
+            "value": 0,
+            "unit": "degree",
+            "id": {
+              "authority": "EPSG",
+              "code": 8823
+            }
+          },
+          {
+            "name": "Latitude of natural origin",
+            "value": 0,
+            "unit": "degree",
+            "id": {
+              "authority": "EPSG",
+              "code": 8801
+            }
+          },
+          {
+            "name": "Longitude of natural origin",
+            "value": 180,
+            "unit": "degree",
+            "id": {
+              "authority": "EPSG",
+              "code": 8802
+            }
+          },
+          {
+            "name": "False easting",
+            "value": 0,
+            "unit": "metre",
+            "id": {
+              "authority": "EPSG",
+              "code": 8806
+            }
+          },
+          {
+            "name": "False northing",
+            "value": 0,
+            "unit": "metre",
+            "id": {
+              "authority": "EPSG",
+              "code": 8807
+            }
+          }
+        ]
+      },
+      "coordinate_system": {
+        "subtype": "Cartesian",
+        "axis": [
+          {
+            "name": "Easting",
+            "abbreviation": "E",
+            "direction": "east",
+            "unit": "metre"
+          },
+          {
+            "name": "Northing",
+            "abbreviation": "N",
+            "direction": "north",
+            "unit": "metre"
+          }
+        ]
+      }
+    },
+    "proj:bbox": [
+      227.69688520108053,
+      34.14942982209223,
+      229.4243686755404,
+      40.17641407723374
+    ],
+    "proj:centroid": {
+      "lat": 37.20851649392299,
+      "lon": -131.45461836275663
+    },
+    "proj:shape": [
+      3440,
+      1002
+    ],
+    "proj:transform": [
+      2825118.9366675,
+      104.2748657095,
+      0.0,
+      2382889.2311935,
+      0.0,
+      -104.2748657095
+    ],
+    "cube:dimensions": {
+      "x": {
+        "type": "spatial",
+        "axis": "x",
+        "extent": [
+          227.69688520108053,
+          229.4243686755404
+        ]
+      },
+      "y": {
+        "type": "spatial",
+        "axis": "y",
+        "extent": [
+          34.14942982209223,
+          40.17641407723374
+        ]
+      }
+    },
+    "view:off_nadir": 0.30169955978677,
+    "view:azimuth": 262.86357330707,
+    "view:sun_azimuth": 232.31605002587,
+    "view:sun_elevation": 15.223326261895,
+    "ssys:targets": [
+      "Mars"
+    ],
+    "ssys:local_solar_time": 15.223326261895,
+    "ssys:start_mars_year": [
+      25.0
+    ],
+    "ssys:start_Ls": [
+      329.6312484112648
+    ],
+    "ssys:stop_Ls": [
+      329.63206416978073
+    ],
+    "datetime": "2002-02-19T18:59:36.889253Z"
+  },
+  "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+      [
+        [
+          [
+            228.67585636753526,
+            40.17641407723374
+          ],
+          [
+            228.91120217791274,
+            40.16487947071473
+          ],
+          [
+            229.1451452882495,
+            40.15288863656203
+          ],
+          [
+            229.37891674534424,
+            40.140422421576154
+          ],
+          [
+            229.4243686755404,
+            40.13725549561197
+          ],
+          [
+            229.39399436941915,
+            39.97094682105846
+          ],
+          [
+            229.36376708713692,
+            39.80468516631809
+          ],
+          [
+            229.33374541632836,
+            39.63840544495618
+          ],
+          [
+            229.30381861550143,
+            39.47212966504065
+          ],
+          [
+            229.273731269992,
+            39.30579452164274
+          ],
+          [
+            229.2436789626423,
+            39.139474160450774
+          ],
+          [
+            229.21385611076454,
+            38.973153396210414
+          ],
+          [
+            229.1842215996997,
+            38.806765602096156
+          ],
+          [
+            229.15468914388427,
+            38.64047495132421
+          ],
+          [
+            229.12501904323958,
+            38.47441858508507
+          ],
+          [
+            229.09536435633464,
+            38.308445868778364
+          ],
+          [
+            229.06578455027045,
+            38.14229835527608
+          ],
+          [
+            229.03726066968724,
+            37.97496811958322
+          ],
+          [
+            229.00772306143327,
+            37.80886613570017
+          ],
+          [
+            228.97809846190248,
+            37.64292536704363
+          ],
+          [
+            228.94835094304761,
+            37.47703322516854
+          ],
+          [
+            228.918828811393,
+            37.311108124206875
+          ],
+          [
+            228.8905814269892,
+            37.144302306569074
+          ],
+          [
+            228.86175507186363,
+            36.978087147774865
+          ],
+          [
+            228.83336900852132,
+            36.81142241145497
+          ],
+          [
+            228.80420256577727,
+            36.64554420931654
+          ],
+          [
+            228.77549789787415,
+            36.478992784140814
+          ],
+          [
+            228.74681125663528,
+            36.312497814363645
+          ],
+          [
+            228.71747503492702,
+            36.14674285539237
+          ],
+          [
+            228.68919142869166,
+            35.980197039521315
+          ],
+          [
+            228.66099476926036,
+            35.81359051000049
+          ],
+          [
+            228.63289063763426,
+            35.64686612276088
+          ],
+          [
+            228.60462808466025,
+            35.48041542643266
+          ],
+          [
+            228.57645094069449,
+            35.313998177571534
+          ],
+          [
+            228.54835418390095,
+            35.14747746904116
+          ],
+          [
+            228.52033780680023,
+            34.98106746333981
+          ],
+          [
+            228.49219982658087,
+            34.81471568690376
+          ],
+          [
+            228.46396953200988,
+            34.64848338583036
+          ],
+          [
+            228.4362604636939,
+            34.481878268099074
+          ],
+          [
+            228.40856801064282,
+            34.31524137522553
+          ],
+          [
+            228.3808689690733,
+            34.14942982209223
+          ],
+          [
+            228.16638183421188,
+            34.16065183033687
+          ],
+          [
+            227.95268074996105,
+            34.17132086830809
+          ],
+          [
+            227.7385686387423,
+            34.18163021599883
+          ],
+          [
+            227.69688520108053,
+            34.184281509242034
+          ],
+          [
+            227.72341906473685,
+            34.351225076486074
+          ],
+          [
+            227.74973582888904,
+            34.51796845005064
+          ],
+          [
+            227.77599014094747,
+            34.68466614108956
+          ],
+          [
+            227.8026051195619,
+            34.85097875090263
+          ],
+          [
+            227.82923991490065,
+            35.01730018958718
+          ],
+          [
+            227.85579950241532,
+            35.183885575015
+          ],
+          [
+            227.88267304351956,
+            35.350673191058796
+          ],
+          [
+            227.9093076372325,
+            35.51717202852896
+          ],
+          [
+            227.93591669643519,
+            35.68366882002563
+          ],
+          [
+            227.96278031453977,
+            35.85036372822774
+          ],
+          [
+            227.98957942458853,
+            36.01697172192094
+          ],
+          [
+            228.01632125502323,
+            36.1834921458904
+          ],
+          [
+            228.04318502144753,
+            36.350118693941276
+          ],
+          [
+            228.0694888138022,
+            36.51627720252458
+          ],
+          [
+            228.09618121225284,
+            36.68266238924366
+          ],
+          [
+            228.12310873834363,
+            36.84918052080434
+          ],
+          [
+            228.14990850928908,
+            37.01530672981686
+          ],
+          [
+            228.17707488335049,
+            37.18174275173088
+          ],
+          [
+            228.20437876799707,
+            37.34830391954645
+          ],
+          [
+            228.23181625356943,
+            37.514856563429596
+          ],
+          [
+            228.2588545670506,
+            37.68104319932075
+          ],
+          [
+            228.2866805993747,
+            37.847627929423496
+          ],
+          [
+            228.31393316059706,
+            38.01375910376977
+          ],
+          [
+            228.34075455633496,
+            38.179718764907776
+          ],
+          [
+            228.3698854165449,
+            38.34734901540945
+          ],
+          [
+            228.39696356488412,
+            38.51346922470373
+          ],
+          [
+            228.42422672324295,
+            38.679670958633935
+          ],
+          [
+            228.4517738702464,
+            38.84602526432997
+          ],
+          [
+            228.47958362507123,
+            39.012440971886235
+          ],
+          [
+            228.50751119818827,
+            39.17885917231767
+          ],
+          [
+            228.535512336847,
+            39.345281431983665
+          ],
+          [
+            228.56363106106738,
+            39.51175502896101
+          ],
+          [
+            228.5915763726417,
+            39.67820535884421
+          ],
+          [
+            228.6195015082259,
+            39.84458180638728
+          ],
+          [
+            228.64766711659067,
+            40.01094787081116
+          ],
+          [
+            228.67585636753526,
+            40.17641407723374
+          ]
+        ]
+      ]
+    ]
+  },
+  "links": [
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "href": "https://asc-mars.s3-us-west-2.amazonaws.com/themis_controlled/I00816001RDR/I00816001RDR.jpg",
+      "type": "image/jpeg",
+      "title": "Image Thumbnail",
+      "key": "thumbnail",
+      "roles": [
+        "thumbnail"
+      ]
+    },
+    "band1": {
+      "href": "https://asc-mars.s3-us-west-2.amazonaws.com/themis_controlled/I00816001RDR/I00816001RDR_B1.tif",
+      "title": "Band 1",
+      "key": "band1",
+      "eo:bands": [
+        {
+          "name": "Band 1",
+          "center_wavelength": 6.78,
+          "full_width_half_max": 1.01
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "band2": {
+      "href": "https://asc-mars.s3-us-west-2.amazonaws.com/themis_controlled/I00816001RDR/I00816001RDR_B2.tif",
+      "title": "Band 2",
+      "key": "band2",
+      "eo:bands": [
+        {
+          "name": "Band 2",
+          "center_wavelength": 6.78,
+          "full_width_half_max": 1.01
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "band3": {
+      "href": "https://asc-mars.s3-us-west-2.amazonaws.com/themis_controlled/I00816001RDR/I00816001RDR_B3.tif",
+      "title": "Band 3",
+      "key": "band3",
+      "eo:bands": [
+        {
+          "name": "Band 3",
+          "center_wavelength": 7.93,
+          "full_width_half_max": 1.09
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "band4": {
+      "href": "https://asc-mars.s3-us-west-2.amazonaws.com/themis_controlled/I00816001RDR/I00816001RDR_B4.tif",
+      "title": "Band 4",
+      "key": "band4",
+      "eo:bands": [
+        {
+          "name": "Band 4",
+          "center_wavelength": 8.56,
+          "full_width_half_max": 1.16
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "band5": {
+      "href": "https://asc-mars.s3-us-west-2.amazonaws.com/themis_controlled/I00816001RDR/I00816001RDR_B5.tif",
+      "title": "Band 5",
+      "key": "band5",
+      "eo:bands": [
+        {
+          "name": "Band 5",
+          "center_wavelength": 9.35,
+          "full_width_half_max": 1.2
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "band6": {
+      "href": "https://asc-mars.s3-us-west-2.amazonaws.com/themis_controlled/I00816001RDR/I00816001RDR_B6.tif",
+      "title": "Band 6",
+      "key": "band6",
+      "eo:bands": [
+        {
+          "name": "Band 6",
+          "center_wavelength": 10.21,
+          "full_width_half_max": 1.1
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "band7": {
+      "href": "https://asc-mars.s3-us-west-2.amazonaws.com/themis_controlled/I00816001RDR/I00816001RDR_B7.tif",
+      "title": "Band 7",
+      "key": "band7",
+      "eo:bands": [
+        {
+          "name": "Band 7",
+          "center_wavelength": 11.04,
+          "full_width_half_max": 1.19
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "band8": {
+      "href": "https://asc-mars.s3-us-west-2.amazonaws.com/themis_controlled/I00816001RDR/I00816001RDR_B8.tif",
+      "title": "Band 8",
+      "key": "band8",
+      "eo:bands": [
+        {
+          "name": "Band 8",
+          "center_wavelength": 11.79,
+          "full_width_half_max": 1.07
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "band9": {
+      "href": "https://asc-mars.s3-us-west-2.amazonaws.com/themis_controlled/I00816001RDR/I00816001RDR_B9.tif",
+      "title": "Band 9",
+      "key": "band9",
+      "eo:bands": [
+        {
+          "name": "Band 9",
+          "center_wavelength": 12.57,
+          "full_width_half_max": 0.81
+        }
+      ],
+      "roles": [
+        "data",
+        "overview"
+      ]
+    },
+    "band10": {
+      "href": "https://asc-mars.s3-us-west-2.amazonaws.com/themis_controlled/I00816001RDR/I00816001RDR_B10.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "Band 10",
+      "key": "band10",
+      "eo:bands": [
+        {
+          "name": "Band 10",
+          "center_wavelength": 14.88,
+          "full_width_half_max": 0.87
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "provenance": {
+      "href": "https://asc-mars.s3-us-west-2.amazonaws.com/themis_controlled/I00816001RDR/provenance.txt",
+      "type": "text/plain",
+      "title": "Provenance",
+      "key": "provenance",
+      "roles": [
+        "metadata"
+      ]
+    },
+    "isis_label": {
+      "href": "https://asc-mars.s3-us-west-2.amazonaws.com/themis_controlled/I00816001RDR/I00816001RDR.isis.lbl",
+      "type": "text/plain",
+      "title": "ISIS Label",
+      "key": "isis_label",
+      "roles": [
+        "metadata"
+      ]
+    },
+    "pds3_label": {
+      "href": "https://asc-mars.s3-us-west-2.amazonaws.com/themis_controlled/I00816001RDR/I00816001RDR.lbl",
+      "type": "text/plain",
+      "title": "PDS Label",
+      "key": "pds3_label",
+      "roles": [
+        "metadata"
+      ]
+    },
+    "caminfo_pvl": {
+      "href": "https://asc-mars.s3-us-west-2.amazonaws.com/themis_controlled/I00816001RDR/I00816001RDR.caminfo.pvl",
+      "type": "text/plain",
+      "title": "CamInfo Output",
+      "key": "caminfo_pvl",
+      "roles": [
+        "metadata"
+      ]
+    }
+  },
+  "bbox": [
+    227.69688520108053,
+    34.14942982209223,
+    229.4243686755404,
+    40.17641407723374
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/datacube/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/view/v1.0.0/schema.json",
+    "https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json",
+    "https://stac-extensions.github.io/eo/v1.0.0/schema.json"
+  ]
+}
