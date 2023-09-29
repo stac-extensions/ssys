@@ -25,6 +25,7 @@ elevation models (DEM/DTM).
 | Field Name      | Type        | Description |
 | --------------- | ----------- | ----------- |
 | ssys:targets    | [string]    | Array to hold list of target bodies (e.g. Mars, Moon, Earth) |
+| ssys:local_time  | string      | Lexicographically sortable time string (e.g., 01:115:12.343) |
 
 ### Additional Field Information
 
@@ -33,6 +34,10 @@ elevation models (DEM/DTM).
 the field `ssys:targets` allows to have one or more targets listed within an array of strings. This can 
 happen, for example, if several moons are in the same view. As an example, this scene has both of Ganymede
 and Jupiter in the same image as taken by the NASA mission Cassini [PIA02862](https://photojournal.jpl.nasa.gov/catalog/PIA02862).
+
+#### ssys:local_time
+
+the field `ssys:local_time` allows for API searchable non-UTC time definitions. The time should be encoded in a string that is lexicographically sortable. For Mars, it is recommended that this time take the form `MarsYear:Sol:LocalTime`.
 
 ## Contributing
 
