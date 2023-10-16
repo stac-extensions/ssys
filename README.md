@@ -1,11 +1,11 @@
 # Solar System Extension Specification
 
 - **Title:** Solar System
-- **Identifier:** <https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json>
+- **Identifier:** <https://stac-extensions.github.io/solarsystem/v1.0.0/schema.json>
 - **Field Name Prefix:** ssys
 - **Scope:** Item, Catalog, Collection
-- **Extension [Maturity Classification]:** Proposal
-- **Owner**: @thareUSGS
+- **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/README.md#extension-maturity):** Proposal
+- **Owner**: @jlaura
 
 This document explains the fields of the STAC Solar System (SSYS) Extension to a STAC Item, Catalog, or Collection. 
 SSYS covers data sets that represents an individual image, mosaic, or derived raster of a planetary body. Examples 
@@ -18,13 +18,12 @@ elevation models (DEM/DTM).
 - [Collection Example (Europa Galileo SSI Image)](examples/collection.json)
 - [Item Example (Europa Galileo SSI Image)](examples/item.json)
 - [SSYS JSON Schema](json-schema/schema.json)
-- [Changelog](./CHANGELOG.md)
 
 ## Item Properties
 
 | Field Name      | Type        | Description |
 | --------------- | ----------- | ----------- |
-| ssys:targets    | [string]    | Array to hold list of target bodies (e.g. Mars, Moon, Earth) |
+| ssys:targets    | \[string\]    | Array to hold list of target bodies (e.g. Mars, Moon, Earth) |
 | ssys:local_time  | string      | Lexicographically sortable time string (e.g., 01:115:12.343) |
 
 ### Additional Field Information
@@ -37,7 +36,8 @@ and Jupiter in the same image as taken by the NASA mission Cassini [PIA02862](ht
 
 #### ssys:local_time
 
-the field `ssys:local_time` allows for API searchable non-UTC time definitions. The time should be encoded in a string that is lexicographically sortable. For Mars, it is recommended that this time take the form `MarsYear:Sol:LocalTime`.
+the field `ssys:local_time` allows for API searchable non-UTC time definitions. The time should be encoded in a 
+string that is lexicographically sortable. For Mars, it is recommended that this time take the form `MarsYear:Sol:LocalTime`.
 
 ## Contributing
 
