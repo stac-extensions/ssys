@@ -45,7 +45,8 @@ in a time format that is meaningful to the user. Suggested formats are provided 
 | -----| -------------------|
 | Mars | `MarsYear:Sol:LocalTime` |
 
-As a fallback one can consider using the Julian date. This has drawbacks though, as the Julian date does not account for the day/night cycle in different bodies which is often a factor in selecting data.
+As a fallback one can consider using the Julian date. This has drawbacks though, as the Julian date does not 
+account for the day/night cycle in different bodies which is often a factor in selecting data.
 
 ## Contributing
 
