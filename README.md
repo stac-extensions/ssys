@@ -37,7 +37,15 @@ and Jupiter in the same image as taken by the NASA mission Cassini [PIA02862](ht
 #### ssys:local_time
 
 the field `ssys:local_time` allows for API searchable non-UTC time definitions. The time should be encoded in a 
-string that is lexicographically sortable. For Mars, it is recommended that this time take the form `MarsYear:Sol:LocalTime`.
+string that is lexicographically sortable. It is unlikley that this time should be something like the SpacecraftClockCount or another 
+entry from the PDS metadata as most metadata files do not include a local (or local solar time). This field exists to support discovery
+in a time format that is meaningful to the user. Suggested formats are provided below:
+
+| Body | Time String Format |
+| -----| -------------------|
+| Mars | `MarsYear:Sol:LocalTime` |
+
+As a fallback one can consider using the Julian date. This has drawbacks though, as the Julian date does not account for the day/night cycle in different bodies which is often a factor in selecting data.
 
 ## Contributing
 
