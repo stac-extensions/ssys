@@ -1,7 +1,7 @@
 # Solar System Extension Specification
 
 - **Title:** Solar System
-- **Identifier:** <https://stac-extensions.github.io/solarsystem/v1.0.0/schema.json>
+- **Identifier:** <https://stac-extensions.github.io/solarsystem/v1.1.0/schema.json>
 - **Field Name Prefix:** ssys
 - **Scope:** Item, Catalog, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/README.md#extension-maturity):** Proposal
