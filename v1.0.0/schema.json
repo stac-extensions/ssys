@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json#",
+  "title": "SSYS Extension",
+  "description": "STAC SSYS Extension for STAC Items.",
+  "oneOf": [
+    {
+      "$comment": "This is the Solar System schema for STAC Items.",
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "properties",
+            "assets"
+          ],
+          "properties": {
+            "type": {
+              "const": "Feature"
+            },
+            "properties": {
+              "$ref": "#/definitions/fields"
+            },
+            "assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/fields"
+              }
+            }
+          },
+          "$comment": "The if-then-else below checks whether the ssys:targets is given in assets or not. If yes, allows ssys:targets in properties (else), otherwise, disallows sys:targets in properties (then).",
+          "if": {
+            "required": [
+              "assets"
+            ],
+            "properties": {
+              "assets": {
+                "type": "object",
+                "additionalProperties": {
+                  "properties": {
+                    "ssys:targets": false
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "properties": {
+                "properties": {
+                  "ssys:targets": false
+                }
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "properties": {
+                "properties": {
+                  "ssys:targets": {
+                    "$ref": "#/definitions/target"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/stac_extensions"
+        }
+      ]
+    }
+  ],
+  "definitions": {
+    "stac_extensions": {
+      "type": "object",
+      "required": [
+        "stac_extensions"
+      ],
+      "properties": {
+        "stac_extensions": {
+          "type": "array",
+          "contains": {
+            "const": "https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json"
+          }
+        }
+      }
+    },
+    "fields": {
+        "ssys:targets": {
+          "$ref": "#/definitions/targets"
+        }
+      },
+      "patternProperties": {
+        "^(?!ssys:)": {}
+      },
+      "additionalProperties": false
+    },
+    "targets": {
+    "title": "Targets",
+    "description": "Array of strings to hold list of target bodies (e.g. Mars, Moon, Earth)",
+    "type": "array",
+    "minItems": 1,
+    "items": {
+      "type": "string"
+    }
+  }
+}
