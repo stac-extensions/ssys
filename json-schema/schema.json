@@ -1,11 +1,16 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"$id": "https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json#",
+	"$id": "https://stac-extensions.github.io/ssys/v1.1.0/schema.json",
 	"title": "SSYS Extension",
-	"description": "STAC SSYS Extension for STAC Items, Catalogs, or Collections.",
-	"oneOf": [{
+	"description": "STAC Solar System Extension for STAC Items, Catalogs, or Collections.",
+	"oneOf": [
+		{
 			"$comment": "This is the schema for STAC Items.",
-			"allOf": [{
+			"allOf": [
+				{
+					"$ref": "#/definitions/stac_extensions"
+				},
+				{
 					"type": "object",
 					"required": [
 						"type",
@@ -17,36 +22,25 @@
 							"const": "Feature"
 						},
 						"properties": {
-							"allOf": [{
-									"required": [
-										"ssys:targets"
-									]
-								},
-								{
-									"$ref": "#/definitions/ssys"
-								}
-							]
+							"$ref": "#/definitions/fields"
 						},
 						"assets": {
 							"type": "object",
 							"additionalProperties": {
-								"$ref": "#/definitions/ssys"
+								"$ref": "#/definitions/fields"
 							}
 						}
 					}
-				},
-				{
-					"$ref": "#/definitions/stac_extensions"
 				}
 			]
 		},
 		{
 			"$comment": "This is the schema for STAC Collections.",
-			"allOf": [{
+			"allOf": [
+				{
 					"type": "object",
 					"required": [
-						"type",
-						"ssys:targets"
+						"type"
 					],
 					"properties": {
 						"type": {
@@ -55,56 +49,19 @@
 						"assets": {
 							"type": "object",
 							"additionalProperties": {
-								"$ref": "#/definitions/ssys"
+								"$ref": "#/definitions/fields"
 							}
 						},
 						"item_assets": {
 							"type": "object",
 							"additionalProperties": {
-								"$ref": "#/definitions/ssys"
+								"$ref": "#/definitions/fields"
 							}
 						}
 					}
 				},
 				{
 					"$ref": "#/definitions/stac_extensions"
-				},
-				{
-					"$ref": "#/definitions/ssys"
-				}
-			]
-		},
-		{
-			"$comment": "This is the schema for STAC Catalogs.",
-			"allOf": [{
-					"type": "object",
-					"required": [
-						"type",
-						"ssys:targets"
-					],
-					"properties": {
-						"type": {
-							"const": "Catalog"
-						},
-						"assets": {
-							"type": "object",
-							"additionalProperties": {
-								"$ref": "#/definitions/ssys"
-							}
-						},
-						"item_assets": {
-							"type": "object",
-							"additionalProperties": {
-								"$ref": "#/definitions/ssys"
-							}
-						}
-					}
-				},
-				{
-					"$ref": "#/definitions/stac_extensions"
-				},
-				{
-					"$ref": "#/definitions/ssys"
 				}
 			]
 		}
@@ -119,12 +76,12 @@
 				"stac_extensions": {
 					"type": "array",
 					"contains": {
-						"const": "https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json"
+						"const": "https://stac-extensions.github.io/ssys/v1.1.0/schema.json"
 					}
 				}
 			}
 		},
-		"ssys": {
+		"fields`": {
 			"type": "object",
 			"properties": {
 				"ssys:targets": {
@@ -133,8 +90,16 @@
 					"items": {
 						"type": "string"
 					}
+				},
+				"ssys:local_time": {
+					"title": "Local time",
+					"type": "string"
 				}
-			}
+			},
+			"patternProperties": {
+				"^(?!ssys:)": {}
+			},
+			"additionalProperties": false
 		}
 	}
 }

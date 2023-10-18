@@ -1,11 +1,11 @@
 # Solar System Extension Specification
 
 - **Title:** Solar System
-- **Identifier:** <https://raw.githubusercontent.com/thareUSGS/ssys/main/json-schema/schema.json>
+- **Identifier:** <https://stac-extensions.github.io/solarsystem/v1.0.0/schema.json>
 - **Field Name Prefix:** ssys
 - **Scope:** Item, Catalog, Collection
-- **Extension [Maturity Classification]:** Proposal
-- **Owner**: @thareUSGS
+- **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/README.md#extension-maturity):** Proposal
+- **Owner**: @jlaura
 
 This document explains the fields of the STAC Solar System (SSYS) Extension to a STAC Item, Catalog, or Collection. 
 SSYS covers data sets that represents an individual image, mosaic, or derived raster of a planetary body. Examples 
@@ -18,13 +18,13 @@ elevation models (DEM/DTM).
 - [Collection Example (Europa Galileo SSI Image)](examples/collection.json)
 - [Item Example (Europa Galileo SSI Image)](examples/item.json)
 - [SSYS JSON Schema](json-schema/schema.json)
-- [Changelog](./CHANGELOG.md)
 
 ## Item Properties
 
 | Field Name      | Type        | Description |
 | --------------- | ----------- | ----------- |
-| ssys:targets    | [string]    | Array to hold list of target bodies (e.g. Mars, Moon, Earth) |
+| ssys:targets    | \[string\]    | Array to hold list of target bodies (e.g. Mars, Moon, Earth) |
+| ssys:local_time  | string      | Lexicographically sortable time string (e.g., 01:115:12.343) |
 
 ### Additional Field Information
 
@@ -34,6 +34,20 @@ the field `ssys:targets` allows to have one or more targets listed within an arr
 happen, for example, if several moons are in the same view. As an example, this scene has both of Ganymede
 and Jupiter in the same image as taken by the NASA mission Cassini [PIA02862](https://photojournal.jpl.nasa.gov/catalog/PIA02862).
 
+#### ssys:local_time
+
+the field `ssys:local_time` allows for API searchable non-UTC time definitions. The time should be encoded in a 
+string that is lexicographically sortable. It is unlikley that this time should be something like the SpacecraftClockCount or another 
+entry from the PDS metadata as most metadata files do not include a local (or local solar time). This field exists to support discovery
+in a time format that is meaningful to the user. Suggested formats are provided below:
+
+| Body | Time String Format |
+| -----| -------------------|
+| Mars | `MarsYear:Sol:LocalTime` |
+
+As a fallback one can consider using the Julian date. This has drawbacks though, as the Julian date does not 
+account for the day/night cycle in different bodies which is often a factor in selecting data.
+
 ## Contributing
 
 All contributions are subject to the
@@ -41,3 +55,26 @@ All contributions are subject to the
 For contributions, please follow the
 [STAC specification contributing guide](https://github.com/radiantearth/stac-spec/blob/master/CONTRIBUTING.md) Instructions
 for running tests are copied here for convenience.
+
+### Running tests
+
+The same checks that run as checks on PR's are part of the repository and can be run locally to verify that changes are valid. 
+To run tests locally, you'll need `npm`, which is a standard part of any [node.js installation](https://nodejs.org/en/download/).
+
+First you'll need to install everything with npm once. Just navigate to the root of this repository and on 
+your command line run:
+```bash
+npm install
+```
+
+Then to check markdown formatting and test the examples against the JSON schema, you can run:
+```bash
+npm test
+```
+
+This will spit out the same texts that you see online, and you can then go and fix your markdown or examples.
+
+If the tests reveal formatting problems with the examples, you can fix them with:
+```bash
+npm run format-examples
+```
