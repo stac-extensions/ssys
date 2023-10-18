@@ -23,8 +23,9 @@ elevation models (DEM/DTM).
 
 | Field Name      | Type        | Description |
 | --------------- | ----------- | ----------- |
-| ssys:targets    | \[string\]    | Array to hold list of target bodies (e.g. Mars, Moon, Earth) |
+| ssys:targets    | \[string\]    | Array to hold list of target bodies (e.g. Mars, Moon, Earth) conforming to the [International Virtual Observatory Alliance](https://www.ivoa.net/documents/EPNTAP/20201027/WD-epntap-2.0-20201027.html#tth_sEc2.1.3) target name specification. |
 | ssys:local_time  | string      | Lexicographically sortable time string (e.g., 01:115:12.343) |
+| ssys:target_class | string | The identity of the type of the target as defined by the [International Virtual Observatory Alliance](https://www.ivoa.net/documents/EPNTAP/20201027/WD-epntap-2.0-20201027.html#tth_sEc2.1.3) |
 
 ### Additional Field Information
 
@@ -47,6 +48,28 @@ in a time format that is meaningful to the user. Suggested formats are provided 
 
 As a fallback one can consider using the Julian date. This has drawbacks though, as the Julian date does not 
 account for the day/night cycle in different bodies which is often a factor in selecting data.
+
+#### ssys:target_class
+
+the field `ssys:target_class` identifies the type of the target. Solar System bodies are defined without ambiguity by the couple
+target_class and target_name. Values for this class are derived from the 
+[International Virtual Observatory Alliance](https://www.ivoa.net/documents/EPNTAP/20201027/WD-epntap-2.0-20201027.html#tth_sEc2.1.3) 
+target description parameter.
+
+Accepted values are: 
+- asteroid
+- dwarf_planet
+- planet
+- satellite
+- comet
+- exoplanet
+- interplanetary_medium
+- sample
+- sky
+- spacecraft
+- spacejunk
+- star
+- calibration
 
 ## Contributing
 

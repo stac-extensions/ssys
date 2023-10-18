@@ -94,6 +94,23 @@
 				"ssys:local_time": {
 					"title": "Local time",
 					"type": "string"
+				},
+				"ssys:target_class": {
+					"title": "target_class",
+					"type": "string",
+					"enum": ["asteroid", 
+					         "dwarf_planet", 
+							 "planet", 
+							 "satellite", 
+							 "comet", 
+							 "exoplanet", 
+							 "interplanetary_medium", 
+							 "sample", 
+							 "sky", 
+							 "spacecraft", 
+							 "spacejunk", 
+							 "star", 
+							 "calibration"]
 				}
 			},
 			"patternProperties": {

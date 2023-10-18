@@ -17,6 +17,7 @@
     "ssys:targets": [
       "Europa"
     ],
+    "ssys:target_class": "planet",
     "gsd": 1570,
     "license": "PDDL-1.0",
     "proj:epsg": null,
