@@ -81,7 +81,7 @@
 				}
 			}
 		},
-		"fields": {
+		"fields`": {
 			"type": "object",
 			"properties": {
 				"ssys:targets": {
