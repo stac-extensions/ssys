@@ -34,19 +34,26 @@ the field `ssys:targets` allows to have one or more targets listed within an arr
 happen, for example, if several moons are in the same view. As an example, this scene has both of Ganymede
 and Jupiter in the same image as taken by the NASA mission Cassini [PIA02862](https://photojournal.jpl.nasa.gov/catalog/PIA02862).
 
-The extension adopts the best practice from the [IVOA](https://www.ivoa.net/documents/EPNTAP/20201027/WD-epntap-2.0-20201027.html#tth_sEc2.1.3) standard. 
-For almost all targets, the best practice is to use the official designation of the target as defined by [IAU](https://www.iau.org/public/themes/naming/)(e.g., from
- their official naming guide available via the previously linked page or [here](https://docs.google.com/spreadsheets/d/1CEXGyancLRtHyPW7u0L_JNi0V8aDuIhv/edit#gid=1358030832)). 
- This parameter is case sensitive (mixing lower/upper cases) and all values must use the standard spelling and case; unusual characters (such as intermediate 
- spaces) are allowed, except quotes (preferably changed to _ , which is the 
- single-character wildcard in TAP queries). Data providers must be aware that 
- services which do not use the IAU designations might not be accessible by the 
- clients.
+The extension adopts the best practice from the 
+[IVOA](https://www.ivoa.net/documents/EPNTAP/20201027/WD-epntap-2.0-20201027.html#tth_sEc2.1.3) standard. 
+For almost all targets, the best practice is to use the official designation of the
+ target as defined by [IAU](https://www.iau.org/public/themes/naming/)(e.g., from
+ their official naming guide available via the previously linked page or
+[here](https://docs.google.com/spreadsheets/d/1CEXGyancLRtHyPW7u0L_JNi0V8aDuIhv/edit#gid=1358030832)). 
+This parameter is case sensitive (mixing lower/upper cases) and all values must use
+the standard spelling and case; unusual characters (such as intermediate 
+spaces) are allowed, except quotes (preferably changed to _ , which is the 
+single-character wildcard in TAP queries). Data providers must be aware that 
+services which do not use the IAU designations might not be accessible by the 
+clients.
 
 If the target is not an IAU named body, extension users can consider using one of the following:
-- The Exoplanet Encyclopedia provides a nearly complete list of currently known extrasolar planets: [http://exoplanet.eu/](http://exoplanet.eu/index.php).
-- Asteroids: Usage is to use preferably name (if it exists) or principal designation (the number is not used here, it can be included in alt_target_name)
-- Calibration targets: Values can relate to existing names in a given archive (e.g., the PSA contains values such as bias, checkout, dark, flatfield, internal source…)
+- The Exoplanet Encyclopedia provides a nearly complete list of currently 
+known extrasolar planets: [http://exoplanet.eu/](http://exoplanet.eu/index.php).
+- Asteroids: Usage is to use preferably name (if it exists) or principal 
+designation (the number is not used here, it can be included in alt_target_name)
+- Calibration targets: Values can relate to existing names in a given archive (e.g., 
+the PSA contains values such as bias, checkout, dark, flatfield, internal source…)
 
 #### ssys:local_time
 
