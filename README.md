@@ -51,9 +51,9 @@ If the target is not an IAU named body, extension users can consider using one o
 - The Exoplanet Encyclopedia provides a nearly complete list of currently 
 known extrasolar planets: [http://exoplanet.eu/](http://exoplanet.eu/index.php).
 - Asteroids: Usage is to use preferably name (if it exists) or principal 
-designation (the number is not used here, it can be included in alt_target_name)
+designation.
 - Calibration targets: Values can relate to existing names in a given archive (e.g., 
-the PSA contains values such as bias, checkout, dark, flatfield, internal source…)
+the PSA contains values such as bias, checkout, dark, flatfield, internal source…).
 
 #### ssys:local_time
 
