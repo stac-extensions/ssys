@@ -1,7 +1,7 @@
 # Solar System Extension Specification
 
 - **Title:** Solar System
-- **Identifier:** <https://stac-extensions.github.io/solarsystem/v1.1.0/schema.json>
+- **Identifier:** <https://stac-extensions.github.io/ssys/v1.1.0/schema.json>
 - **Field Name Prefix:** ssys
 - **Scope:** Item, Catalog, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/README.md#extension-maturity):** Proposal
@@ -23,9 +23,9 @@ elevation models (DEM/DTM).
 
 | Field Name      | Type        | Description |
 | --------------- | ----------- | ----------- |
-| ssys:targets    | \[string\]    | Array to hold list of target bodies (e.g. Mars, Moon, Earth) conforming to the [International Virtual Observatory Alliance](https://www.ivoa.net/documents/EPNTAP/20201027/WD-epntap-2.0-20201027.html#tth_sEc2.1.3) target name specification. |
+| ssys:targets    | \[string\]    | Array to hold list of target bodies (e.g. Mars, Moon, Earth) conforming to the [International Virtual Observatory Alliance](https://www.ivoa.net/documents/EPNTAP/20220822/REC-EPNTAP-2.0.html#tth_sEc2.1.3) target name specification. |
 | ssys:local_time  | string      | Lexicographically sortable time string (e.g., 01:115:12.343) |
-| ssys:target_class | string | The identity of the type of the target as defined by the [International Virtual Observatory Alliance](https://www.ivoa.net/documents/EPNTAP/20201027/WD-epntap-2.0-20201027.html#tth_sEc2.1.3) |
+| ssys:target_class | string | The identity of the type of the target as defined by the [International Virtual Observatory Alliance](https://www.ivoa.net/documents/EPNTAP/20220822/REC-EPNTAP-2.0.html#tth_sEc2.1.3) |
 
 ### Additional Field Information
 
