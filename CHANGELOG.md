@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## \[Unreleased\]
 
+## [1.1.1](https://github.com/stac-extensions/ssys/releases/tag/v1.1.1) - 2026-02-06
+### Added
+- Fix examples
+- Support ssys for catalogsy
+
 ## [1.1.0](https://github.com/stac-extensions/ssys/releases/tag/v1.1.0) - 2023-10-19
 
 ### Added
