@@ -1,0 +1,123 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://stac-extensions.github.io/ssys/v1.1.1/schema.json",
+	"title": "SSYS Extension",
+	"description": "STAC Solar System Extension for STAC Items, Catalogs, and Collections.",
+	"oneOf": [
+		{
+			"$ref": "#/definitions/item"
+		},
+		{
+			"$ref": "#/definitions/collection"
+		},
+		{
+			"$ref": "#/definitions/catalog"
+		}
+	],
+	"definitions": {
+		"fields": {
+			"type": "object",
+			"description": "SSYS extension fields.",
+			"properties": {
+				"ssys:targets": {
+					"description": "List of solar system targets relevant to the data.",
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"type": "string"
+					}
+				},
+				"ssys:local_time": {
+					"title": "Local Time",
+					"description": "Local solar time at the observation target.",
+					"type": "string"
+				},
+				"ssys:target_class": {
+					"title": "Target Class",
+					"description": "Classification of the observed target.",
+					"type": "string",
+					"enum": [
+						"asteroid",
+						"dwarf_planet",
+						"planet",
+						"satellite",
+						"comet",
+						"exoplanet",
+						"interplanetary_medium",
+						"sample",
+						"sky",
+						"spacecraft",
+						"spacejunk",
+						"star",
+						"calibration"
+					]
+				}
+			},
+			"patternProperties": {
+				"^(?!ssys:)": {}
+			},
+			"additionalProperties": false
+		},
+		"asset_fields": {
+			"type": "object",
+			"additionalProperties": {
+				"$ref": "#/definitions/fields"
+			}
+		},
+		"item": {
+			"$comment": "Schema for STAC Items.",
+			"type": "object",
+			"required": [
+				"type",
+				"properties",
+				"assets"
+			],
+			"properties": {
+				"type": {
+					"const": "Feature"
+				},
+				"properties": {
+					"$ref": "#/definitions/fields"
+				},
+				"assets": {
+					"$ref": "#/definitions/asset_fields"
+				}
+			}
+		},
+		"collection": {
+			"$comment": "Schema for STAC Collections.",
+			"type": "object",
+			"required": [
+				"type"
+			],
+			"properties": {
+				"type": {
+					"const": "Collection"
+				},
+				"assets": {
+					"$ref": "#/definitions/asset_fields"
+				},
+				"item_assets": {
+					"$ref": "#/definitions/asset_fields"
+				}
+			}
+		},
+		"catalog": {
+			"$comment": "Schema for STAC Catalogs.",
+			"type": "object",
+			"required": [
+				"type"
+			],
+			"properties": {
+				"type": {
+					"const": "Catalog"
+				}
+			},
+			"allOf": [ 
+				{ 
+					"$ref": "#/definitions/fields" 
+				} 
+			]
+		}
+	}
+}
