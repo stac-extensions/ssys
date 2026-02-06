@@ -1,7 +1,10 @@
 {
   "id": "usgs_controlled_images_voy1_voy2_galileo",
   "type": "Collection",
-  "stac_version": "1.0.0",
+  "stac_version": "1.1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/ssys/v1.1.1/schema.json"
+  ],
   "ssys:targets": [
     "Europa"
   ],
