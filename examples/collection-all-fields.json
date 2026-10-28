@@ -28,6 +28,24 @@
       ]
     }
   },
+  "summaries": {
+    "ssys:targets": [
+      "Mars",
+      "Phobos"
+    ],
+    "ssys:target_class": [
+      "planet",
+      "satellite"
+    ],
+    "ssys:phase_angle": {
+      "minimum": 10,
+      "maximum": 85
+    },
+    "ssys:incidence_angle": {
+      "minimum": 30,
+      "maximum": 120
+    }
+  },
   "ssys:local_time": "28:512:14.23",
   "ssys:target_class": "asteroid",
   "ssys:targets": [

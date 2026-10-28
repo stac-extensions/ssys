@@ -115,6 +115,7 @@
     "ssys:targets": {
       "type": "array",
       "description": "List of solar system targets relevant to the data.",
+      "minItems": 1,
       "items": {
         "type": "string"
       }
@@ -279,8 +280,9 @@
             "array",
             "object"
           ],
+          "minItems": 1,
           "items": {
-            "$ref": "#/definitions/ssys:targets"
+            "type": "string"
           }
         },
         "ssys:north_azimuth": {
