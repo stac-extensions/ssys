@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420" font-family="Helvetica, Arial, sans-serif">
+  <title>Incidence, emission and phase angles</title>
+  <style>
+    .ink { fill: #24292f; }
+    .line { stroke: #57606a; }
+    .body { fill: #d0d7de; stroke: #57606a; }
+    .muted { fill: #57606a; }
+    .s-sun { stroke: #bf6c00; fill: none; }
+    .f-sun { fill: #bf6c00; }
+    .s-inst { stroke: #0969da; fill: none; }
+    .f-inst { fill: #0969da; }
+    .s-phase { stroke: #8250df; fill: none; }
+    .f-phase { fill: #8250df; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #e6edf3; }
+      .line { stroke: #9198a1; }
+      .body { fill: #30363d; stroke: #9198a1; }
+      .muted { fill: #9198a1; }
+      .s-sun { stroke: #f0a63a; }
+      .f-sun { fill: #f0a63a; }
+      .s-inst { stroke: #4c9cf0; }
+      .f-inst { fill: #4c9cf0; }
+      .s-phase { stroke: #ab7df8; }
+      .f-phase { fill: #ab7df8; }
+    }
+  </style>
+  <defs>
+    <marker id="arrow-sun" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="f-sun"/>
+    </marker>
+    <marker id="arrow-inst" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="f-inst"/>
+    </marker>
+  </defs>
+
+  <!-- Target body surface -->
+  <path d="M40,344.6 A900,900 0 0,1 600,344.6 L600,420 L40,420 z" class="body" stroke-width="1.5"/>
+  <line x1="150" y1="300" x2="490" y2="300" class="line" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="500" y="296" font-size="12" class="muted">local tangent plane</text>
+  <text x="70" y="405" font-size="13" class="muted">target body</text>
+
+  <!-- Surface normal -->
+  <line x1="320" y1="300" x2="320" y2="70" class="line" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="320" y="60" font-size="13" text-anchor="middle" class="ink">surface normal</text>
+
+  <!-- Incoming light from the Sun (i = 40°) -->
+  <line x1="186" y1="140" x2="313" y2="291" class="s-sun" stroke-width="2" marker-end="url(#arrow-sun)"/>
+  <g class="f-sun">
+    <circle cx="172" cy="123" r="13"/>
+  </g>
+  <g class="s-sun" stroke-width="2">
+    <line x1="172" y1="100" x2="172" y2="94"/><line x1="172" y1="146" x2="172" y2="152"/>
+    <line x1="149" y1="123" x2="143" y2="123"/><line x1="195" y1="123" x2="201" y2="123"/>
+    <line x1="156" y1="107" x2="152" y2="103"/><line x1="188" y1="139" x2="192" y2="143"/>
+    <line x1="188" y1="107" x2="192" y2="103"/><line x1="156" y1="139" x2="152" y2="143"/>
+  </g>
+  <text x="172" y="78" font-size="13" text-anchor="middle" class="ink">Sun</text>
+
+  <!-- Outgoing light toward the instrument (e = 25°) -->
+  <line x1="322" y1="296" x2="407" y2="114" class="s-inst" stroke-width="2" marker-end="url(#arrow-inst)"/>
+  <g class="f-inst">
+    <rect x="400" y="84" width="34" height="20" rx="3" transform="rotate(25 417 94)"/>
+  </g>
+  <text x="450" y="84" font-size="13" class="ink">instrument</text>
+
+  <!-- Intercept point -->
+  <circle cx="320" cy="300" r="4.5" class="ink"/>
+  <text x="320" y="324" font-size="13" text-anchor="middle" class="ink">intercept point</text>
+
+  <!-- Angle arcs -->
+  <path d="M320,230 A70,70 0 0,0 275,246.4" class="s-sun" stroke-width="2"/>
+  <text x="288" y="218" font-size="15" font-style="italic" font-weight="bold" class="f-sun">i</text>
+
+  <path d="M320,240 A60,60 0 0,1 345.4,245.6" class="s-inst" stroke-width="2"/>
+  <text x="332" y="226" font-size="15" font-style="italic" font-weight="bold" class="f-inst">e</text>
+
+  <path d="M236.4,200.4 A130,130 0 0,1 374.9,182.2" class="s-phase" stroke-width="2"/>
+  <text x="296" y="160" font-size="15" font-style="italic" font-weight="bold" class="f-phase">g</text>
+
+  <!-- Legend -->
+  <g font-size="13">
+    <text x="440" y="180" class="f-sun"><tspan font-style="italic" font-weight="bold">i</tspan> incidence angle</text>
+    <text x="440" y="200" class="f-inst"><tspan font-style="italic" font-weight="bold">e</tspan> emission angle</text>
+    <text x="440" y="220" class="f-phase"><tspan font-style="italic" font-weight="bold">g</tspan> phase angle</text>
+  </g>
+  <text x="440" y="248" font-size="11" class="muted">
+    <tspan x="440">i = 90° at the terminator,</tspan>
+    <tspan x="440" dy="14">i &gt; 90° on the night side</tspan>
+  </text>
+</svg>

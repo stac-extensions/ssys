@@ -1,0 +1,112 @@
+{
+  "type": "Collection",
+  "stac_version": "1.1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/ssys/v1.2.0/schema.json"
+  ],
+  "id": "EXAMPLE-1",
+  "links": [],
+  "description": "Example collection.",
+  "license": "CC0-1.0",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180,
+          -90,
+          180,
+          90
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          null,
+          null
+        ]
+      ]
+    }
+  },
+  "summaries": {
+    "ssys:targets": [
+      "Mars",
+      "Phobos"
+    ],
+    "ssys:target_class": [
+      "planet",
+      "satellite"
+    ],
+    "ssys:phase_angle": {
+      "minimum": 10,
+      "maximum": 85
+    },
+    "ssys:incidence_angle": {
+      "minimum": 30,
+      "maximum": 120
+    }
+  },
+  "ssys:local_time": "28:512:14.23",
+  "ssys:target_class": "asteroid",
+  "ssys:targets": [
+    "Mars"
+  ],
+  "ssys:north_azimuth": 180,
+  "ssys:solar_longitude": 180,
+  "ssys:local_true_solar_time": 20,
+  "ssys:emission_angle": 45,
+  "ssys:incidence_angle": 45,
+  "ssys:phase_angle": 90,
+  "ssys:sub_solar_azimuth": 180,
+  "ssys:sub_solar_latitude": 0,
+  "ssys:sub_solar_longitude": 180,
+  "ssys:sub_spacecraft_latitude": 0,
+  "ssys:sub_spacecraft_longitude": 180,
+  "assets": {
+    "data": {
+      "href": "https://example.org/data",
+      "roles": [
+        "data"
+      ],
+      "ssys:local_time": "28:512:14.23",
+      "ssys:target_class": "asteroid",
+      "ssys:targets": [
+        "Mars"
+      ],
+      "ssys:north_azimuth": 180,
+      "ssys:solar_longitude": 180,
+      "ssys:local_true_solar_time": 20,
+      "ssys:emission_angle": 45,
+      "ssys:incidence_angle": 45,
+      "ssys:phase_angle": 90,
+      "ssys:sub_solar_azimuth": 180,
+      "ssys:sub_solar_latitude": 0,
+      "ssys:sub_solar_longitude": 180,
+      "ssys:sub_spacecraft_latitude": 0,
+      "ssys:sub_spacecraft_longitude": 180
+    }
+  },
+  "item_assets": {
+    "data": {
+      "roles": [
+        "data"
+      ],
+      "ssys:local_time": "28:512:14.23",
+      "ssys:target_class": "asteroid",
+      "ssys:targets": [
+        "Mars"
+      ],
+      "ssys:north_azimuth": 180,
+      "ssys:solar_longitude": 180,
+      "ssys:local_true_solar_time": 14.23,
+      "ssys:emission_angle": 45,
+      "ssys:incidence_angle": 45,
+      "ssys:phase_angle": 90,
+      "ssys:sub_solar_azimuth": 180,
+      "ssys:sub_solar_latitude": 0,
+      "ssys:sub_solar_longitude": 180,
+      "ssys:sub_spacecraft_latitude": 0,
+      "ssys:sub_spacecraft_longitude": 180
+    }
+  }
+}

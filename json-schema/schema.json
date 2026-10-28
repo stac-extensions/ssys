@@ -1,123 +1,474 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
-	"$id": "https://stac-extensions.github.io/ssys/v1.1.1/schema.json",
-	"title": "SSYS Extension",
-	"description": "STAC Solar System Extension for STAC Items, Catalogs, and Collections.",
-	"oneOf": [
-		{
-			"$ref": "#/definitions/item"
-		},
-		{
-			"$ref": "#/definitions/collection"
-		},
-		{
-			"$ref": "#/definitions/catalog"
-		}
-	],
-	"definitions": {
-		"fields": {
-			"type": "object",
-			"description": "SSYS extension fields.",
-			"properties": {
-				"ssys:targets": {
-					"description": "List of solar system targets relevant to the data.",
-					"type": "array",
-					"minItems": 1,
-					"items": {
-						"type": "string"
-					}
-				},
-				"ssys:local_time": {
-					"title": "Local Time",
-					"description": "Local solar time at the observation target.",
-					"type": "string"
-				},
-				"ssys:target_class": {
-					"title": "Target Class",
-					"description": "Classification of the observed target.",
-					"type": "string",
-					"enum": [
-						"asteroid",
-						"dwarf_planet",
-						"planet",
-						"satellite",
-						"comet",
-						"exoplanet",
-						"interplanetary_medium",
-						"sample",
-						"sky",
-						"spacecraft",
-						"spacejunk",
-						"star",
-						"calibration"
-					]
-				}
-			},
-			"patternProperties": {
-				"^(?!ssys:)": {}
-			},
-			"additionalProperties": false
-		},
-		"asset_fields": {
-			"type": "object",
-			"additionalProperties": {
-				"$ref": "#/definitions/fields"
-			}
-		},
-		"item": {
-			"$comment": "Schema for STAC Items.",
-			"type": "object",
-			"required": [
-				"type",
-				"properties",
-				"assets"
-			],
-			"properties": {
-				"type": {
-					"const": "Feature"
-				},
-				"properties": {
-					"$ref": "#/definitions/fields"
-				},
-				"assets": {
-					"$ref": "#/definitions/asset_fields"
-				}
-			}
-		},
-		"collection": {
-			"$comment": "Schema for STAC Collections.",
-			"type": "object",
-			"required": [
-				"type"
-			],
-			"properties": {
-				"type": {
-					"const": "Collection"
-				},
-				"assets": {
-					"$ref": "#/definitions/asset_fields"
-				},
-				"item_assets": {
-					"$ref": "#/definitions/asset_fields"
-				}
-			}
-		},
-		"catalog": {
-			"$comment": "Schema for STAC Catalogs.",
-			"type": "object",
-			"required": [
-				"type"
-			],
-			"properties": {
-				"type": {
-					"const": "Catalog"
-				}
-			},
-			"allOf": [ 
-				{ 
-					"$ref": "#/definitions/fields" 
-				} 
-			]
-		}
-	}
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://stac-extensions.github.io/ssys/v1.2.0/schema.json",
+  "title": "SSYS Extension",
+  "description": "STAC Solar System Extension for STAC Items, Catalogs, and Collections.",
+  "type": "object",
+  "required": [
+    "stac_extensions",
+    "type"
+  ],
+  "properties": {
+    "stac_extensions": {
+      "type": "array",
+      "contains": {
+        "const": "https://stac-extensions.github.io/ssys/v1.2.0/schema.json"
+      }
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Catalog",
+        "Collection",
+        "Feature"
+      ]
+    },
+    "assets": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/fieldsAndBands"
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "type",
+        "properties"
+      ],
+      "properties": {
+        "type": {
+          "const": "Feature"
+        },
+        "properties": {
+          "$ref": "#/definitions/fieldsAndBands"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "const": "Collection"
+        },
+        "item_assets": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/fieldsAndBands"
+          }
+        },
+        "summaries": {
+          "$ref": "#/definitions/summaries"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/fieldsAndBands"
+        }
+      ]
+    },
+    {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "const": "Catalog"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/fields"
+        }
+      ]
+    }
+  ],
+  "definitions": {
+    "ssys:local_time": {
+      "type": "string",
+      "description": "Local solar time at the observation target."
+    },
+    "ssys:target_class": {
+      "type": "string",
+      "description": "Classification of the observed target.",
+      "enum": [
+        "asteroid",
+        "dwarf_planet",
+        "planet",
+        "satellite",
+        "comet",
+        "exoplanet",
+        "interplanetary_medium",
+        "sample",
+        "sky",
+        "spacecraft",
+        "spacejunk",
+        "star",
+        "calibration"
+      ]
+    },
+    "ssys:targets": {
+      "type": "array",
+      "description": "List of solar system targets relevant to the data.",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "ssys:north_azimuth": {
+      "type": "number",
+      "description": "The angle between a line from the image center to the north pole and a horizontal reference line from the image center to the middle of the right edge, increasing clockwise, with the image displayed according to its declared display direction. Range: 0–360°.\nSource: NASA PDS4 Data Dictionary, geom:north_azimuth (class Object_Orientation_North_East), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s119.html",
+      "minimum": 0.0,
+      "maximum": 360.0
+    },
+    "ssys:solar_longitude": {
+      "type": "number",
+      "description": "The angle between the body–Sun line at the time of interest and the body–Sun line at its vernal equinox, giving a measure of the season on the target body. Range: 0–360°.\nSource: NASA PDS4 Data Dictionary, pds:solar_longitude (class Time_Coordinates), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch05s840.html",
+      "minimum": 0.0,
+      "maximum": 360.0
+    },
+    "ssys:local_true_solar_time": {
+      "type": "number",
+      "description": "The local time on a rotating body, equal to 12 h at the subsolar point and increasing by 1 h for every 15° of east longitude away from it, for prograde rotation. In ssys: decimal hours, range 0–24 (PDS4 uses a string).\nSource: NASA PDS4 Data Dictionary, pds:local_true_solar_time (class Time_Coordinates), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch05s438.html",
+      "minimum": 0.0,
+      "maximum": 24.0
+    },
+    "ssys:emission_angle": {
+      "type": "number",
+      "description": "The angle between the surface normal vector at the intercept point and a vector from the intercept point to the spacecraft. It varies from 0° when the spacecraft is viewing the subspacecraft point (nadir viewing) to 90° when the intercept is tangent to the surface of the target body; higher values indicate more oblique viewing. For ring data, values from 90 to 180° indicate viewing on the unlit side, from oblique or edge-on at 90° to the unlit nadir at 180°. Range: 0–180°.\nSource: NASA PDS4 Data Dictionary, geom:emission_angle (class Derived_Geometry), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s34.html",
+      "minimum": 0.0,
+      "maximum": 180.0
+    },
+    "ssys:incidence_angle": {
+      "type": "number",
+      "description": "A measure of the lighting condition at the intercept point: the angle between the local vertical at the intercept point (surface) and a vector from the intercept point to the Sun. It varies from 0° when the intercept point coincides with the subsolar point to 90° when the intercept point is at the terminator; values above 90° correspond to the shadowed or dark portion of the target body. Range: 0–180°.\nSource: NASA PDS4 Data Dictionary, geom:incidence_angle (class Derived_Geometry), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s48.html",
+      "minimum": 0.0,
+      "maximum": 180.0
+    },
+    "ssys:phase_angle": {
+      "type": "number",
+      "description": "A measure of the relationship between the instrument viewing position and incident illumination (such as solar light). Measured at the target, it is the angle between a vector to the illumination source and a vector to the instrument. If illumination is from behind the instrument, the phase angle is small. Range: 0–180°.\nSource: NASA PDS4 Data Dictionary, geom:phase_angle (class Illumination_Specific), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s121.html",
+      "minimum": 0.0,
+      "maximum": 180.0
+    },
+    "ssys:sub_solar_azimuth": {
+      "type": "number",
+      "description": "The angle between the line from the center of an image to the subsolar point on the target and a horizontal reference line (in the image plane) extending from the image center to the middle right edge of the image, increasing clockwise. Range: 0–360°.\nSource: NASA PDS4 Data Dictionary, geom:subsolar_azimuth (class Surface_Geometry_Specific), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s203.html",
+      "minimum": 0.0,
+      "maximum": 360.0
+    },
+    "ssys:sub_solar_latitude": {
+      "type": "number",
+      "description": "The planetocentric latitude of the subsolar point on the target. Range: −90 to 90°.\nSource: NASA PDS4 Data Dictionary, geom:subsolar_latitude (class Surface_Geometry_Specific), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s204.html",
+      "minimum": -90.0,
+      "maximum": 90.0
+    },
+    "ssys:sub_solar_longitude": {
+      "type": "number",
+      "description": "The planetocentric longitude of the subsolar point on the target. Range: 0–360°.\nSource: NASA PDS4 Data Dictionary, geom:subsolar_longitude (class Surface_Geometry_Specific), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s205.html",
+      "minimum": 0.0,
+      "maximum": 360.0
+    },
+    "ssys:sub_spacecraft_latitude": {
+      "type": "number",
+      "description": "The planetocentric latitude of the sub-spacecraft point on the target. Range: −90 to 90°.\nSource: NASA PDS4 Data Dictionary, geom:subspacecraft_latitude (class Surface_Geometry_Specific), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s207.html",
+      "minimum": -90.0,
+      "maximum": 90.0
+    },
+    "ssys:sub_spacecraft_longitude": {
+      "type": "number",
+      "description": "The planetocentric longitude of the sub-spacecraft point on the target. Range: 0–360°.\nSource: NASA PDS4 Data Dictionary, geom:subspacecraft_longitude (class Surface_Geometry_Specific), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s208.html",
+      "minimum": 0.0,
+      "maximum": 360.0
+    },
+    "fields": {
+      "type": "object",
+      "properties": {
+        "ssys:local_time": {
+          "$ref": "#/definitions/ssys:local_time"
+        },
+        "ssys:target_class": {
+          "$ref": "#/definitions/ssys:target_class"
+        },
+        "ssys:targets": {
+          "$ref": "#/definitions/ssys:targets"
+        },
+        "ssys:north_azimuth": {
+          "$ref": "#/definitions/ssys:north_azimuth"
+        },
+        "ssys:solar_longitude": {
+          "$ref": "#/definitions/ssys:solar_longitude"
+        },
+        "ssys:local_true_solar_time": {
+          "$ref": "#/definitions/ssys:local_true_solar_time"
+        },
+        "ssys:emission_angle": {
+          "$ref": "#/definitions/ssys:emission_angle"
+        },
+        "ssys:incidence_angle": {
+          "$ref": "#/definitions/ssys:incidence_angle"
+        },
+        "ssys:phase_angle": {
+          "$ref": "#/definitions/ssys:phase_angle"
+        },
+        "ssys:sub_solar_azimuth": {
+          "$ref": "#/definitions/ssys:sub_solar_azimuth"
+        },
+        "ssys:sub_solar_latitude": {
+          "$ref": "#/definitions/ssys:sub_solar_latitude"
+        },
+        "ssys:sub_solar_longitude": {
+          "$ref": "#/definitions/ssys:sub_solar_longitude"
+        },
+        "ssys:sub_spacecraft_latitude": {
+          "$ref": "#/definitions/ssys:sub_spacecraft_latitude"
+        },
+        "ssys:sub_spacecraft_longitude": {
+          "$ref": "#/definitions/ssys:sub_spacecraft_longitude"
+        }
+      },
+      "patternProperties": {
+        "^(?!ssys:)": {}
+      },
+      "additionalProperties": false
+    },
+    "fieldsAndBands": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/fields"
+        },
+        {
+          "properties": {
+            "bands": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/fields"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "summaries": {
+      "type": "object",
+      "properties": {
+        "ssys:local_time": {
+          "type": [
+            "array",
+            "object"
+          ],
+          "items": {
+            "$ref": "#/definitions/ssys:local_time"
+          }
+        },
+        "ssys:target_class": {
+          "type": [
+            "array",
+            "object"
+          ],
+          "items": {
+            "$ref": "#/definitions/ssys:target_class"
+          }
+        },
+        "ssys:targets": {
+          "type": [
+            "array",
+            "object"
+          ],
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "ssys:north_azimuth": {
+          "type": [
+            "array",
+            "object"
+          ],
+          "items": {
+            "$ref": "#/definitions/ssys:north_azimuth"
+          },
+          "properties": {
+            "minimum": {
+              "$ref": "#/definitions/ssys:north_azimuth"
+            },
+            "maximum": {
+              "$ref": "#/definitions/ssys:north_azimuth"
+            }
+          }
+        },
+        "ssys:solar_longitude": {
+          "type": [
+            "array",
+            "object"
+          ],
+          "items": {
+            "$ref": "#/definitions/ssys:solar_longitude"
+          },
+          "properties": {
+            "minimum": {
+              "$ref": "#/definitions/ssys:solar_longitude"
+            },
+            "maximum": {
+              "$ref": "#/definitions/ssys:solar_longitude"
+            }
+          }
+        },
+        "ssys:local_true_solar_time": {
+          "type": [
+            "array",
+            "object"
+          ],
+          "items": {
+            "$ref": "#/definitions/ssys:local_true_solar_time"
+          }
+        },
+        "ssys:emission_angle": {
+          "type": [
+            "array",
+            "object"
+          ],
+          "items": {
+            "$ref": "#/definitions/ssys:emission_angle"
+          },
+          "properties": {
+            "minimum": {
+              "$ref": "#/definitions/ssys:emission_angle"
+            },
+            "maximum": {
+              "$ref": "#/definitions/ssys:emission_angle"
+            }
+          }
+        },
+        "ssys:incidence_angle": {
+          "type": [
+            "array",
+            "object"
+          ],
+          "items": {
+            "$ref": "#/definitions/ssys:incidence_angle"
+          },
+          "properties": {
+            "minimum": {
+              "$ref": "#/definitions/ssys:incidence_angle"
+            },
+            "maximum": {
+              "$ref": "#/definitions/ssys:incidence_angle"
+            }
+          }
+        },
+        "ssys:phase_angle": {
+          "type": [
+            "array",
+            "object"
+          ],
+          "items": {
+            "$ref": "#/definitions/ssys:phase_angle"
+          },
+          "properties": {
+            "minimum": {
+              "$ref": "#/definitions/ssys:phase_angle"
+            },
+            "maximum": {
+              "$ref": "#/definitions/ssys:phase_angle"
+            }
+          }
+        },
+        "ssys:sub_solar_azimuth": {
+          "type": [
+            "array",
+            "object"
+          ],
+          "items": {
+            "$ref": "#/definitions/ssys:sub_solar_azimuth"
+          },
+          "properties": {
+            "minimum": {
+              "$ref": "#/definitions/ssys:sub_solar_azimuth"
+            },
+            "maximum": {
+              "$ref": "#/definitions/ssys:sub_solar_azimuth"
+            }
+          }
+        },
+        "ssys:sub_solar_latitude": {
+          "type": [
+            "array",
+            "object"
+          ],
+          "items": {
+            "$ref": "#/definitions/ssys:sub_solar_latitude"
+          },
+          "properties": {
+            "minimum": {
+              "$ref": "#/definitions/ssys:sub_solar_latitude"
+            },
+            "maximum": {
+              "$ref": "#/definitions/ssys:sub_solar_latitude"
+            }
+          }
+        },
+        "ssys:sub_solar_longitude": {
+          "type": [
+            "array",
+            "object"
+          ],
+          "items": {
+            "$ref": "#/definitions/ssys:sub_solar_longitude"
+          },
+          "properties": {
+            "minimum": {
+              "$ref": "#/definitions/ssys:sub_solar_longitude"
+            },
+            "maximum": {
+              "$ref": "#/definitions/ssys:sub_solar_longitude"
+            }
+          }
+        },
+        "ssys:sub_spacecraft_latitude": {
+          "type": [
+            "array",
+            "object"
+          ],
+          "items": {
+            "$ref": "#/definitions/ssys:sub_spacecraft_latitude"
+          },
+          "properties": {
+            "minimum": {
+              "$ref": "#/definitions/ssys:sub_spacecraft_latitude"
+            },
+            "maximum": {
+              "$ref": "#/definitions/ssys:sub_spacecraft_latitude"
+            }
+          }
+        },
+        "ssys:sub_spacecraft_longitude": {
+          "type": [
+            "array",
+            "object"
+          ],
+          "items": {
+            "$ref": "#/definitions/ssys:sub_spacecraft_longitude"
+          },
+          "properties": {
+            "minimum": {
+              "$ref": "#/definitions/ssys:sub_spacecraft_longitude"
+            },
+            "maximum": {
+              "$ref": "#/definitions/ssys:sub_spacecraft_longitude"
+            }
+          }
+        }
+      },
+      "patternProperties": {
+        "^(?!ssys:)": {}
+      },
+      "additionalProperties": false
+    }
+  }
 }

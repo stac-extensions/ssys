@@ -1,7 +1,7 @@
 # Solar System Extension Specification
 
 - **Title:** Solar System
-- **Identifier:** <https://stac-extensions.github.io/ssys/v1.1.1/schema.json>
+- **Identifier:** <https://stac-extensions.github.io/ssys/v1.2.0/schema.json>
 - **Field Name Prefix:** ssys
 - **Scope:** Item, Catalog, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/README.md#extension-maturity):** Proposal
@@ -27,6 +27,19 @@ Surveyor), or derived data sets like digital elevation models (DEM/DTM).
 | ssys:targets    | \[string\]    | Array to hold list of target bodies (e.g. Mars, Moon, Earth) conforming to the [International Virtual Observatory Alliance](https://www.ivoa.net/documents/EPNTAP/20220822/REC-EPNTAP-2.0.html#tth_sEc2.1.3) target name specification. |
 | ssys:local_time  | string      | Lexicographically sortable time string (e.g., 01:115:12.343) |
 | ssys:target_class | string | The identity of the type of the target as defined by the [International Virtual Observatory Alliance](https://www.ivoa.net/documents/EPNTAP/20220822/REC-EPNTAP-2.0.html#tth_sEc2.1.3) |
+| ssys:north_azimuth | number | The angle between a line from the image center to the north pole and a horizontal reference line from the image center to the middle of the right edge, increasing clockwise, with the image displayed according to its declared display direction. Range: 0-360°. Source: [`geom:north_azimuth`](https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s119.html). |
+| ssys:solar_longitude | number | The angle between the body-Sun line at the time of interest and the body-Sun line at its vernal equinox, giving a measure of the season on the target body. Range: 0-360°. Source: [`pds:solar_longitude`](https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch05s840.html).
+| ssys:local_true_solar_time | number | The local time on a rotating body, equal to 12 h at the subsolar point and increasing by 1 h for every 15° of east longitude away from it, for prograde rotation. Expressed in decimal hours, range 0-24. Source: [`pds:local_true_solar_time`](https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch05s438.html) (PDS4 encodes it as a string). |
+| ssys:emission_angle | number | The angle between the surface normal vector at the intercept point and a vector from the intercept point to the spacecraft. It varies from 0° when the spacecraft is viewing the subspacecraft point (nadir viewing) to 90° when the intercept is tangent to the surface of the target body; higher values indicate more oblique viewing. For ring data, values from 90 to 180° indicate viewing on the unlit side, from oblique or edge-on at 90° to the unlit nadir at 180°. Range: 0-180°. Source: [`geom:emission_angle`](https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s34.html). |
+| ssys:incidence_angle | number | A measure of the lighting condition at the intercept point: the angle between the local vertical at the intercept point (surface) and a vector from the intercept point to the Sun. It varies from 0° when the intercept point coincides with the subsolar point to 90° when the intercept point is at the terminator; values above 90° correspond to the shadowed or dark portion of the target body. Range: 0-180°. Source: [`geom:incidence_angle`](https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s48.html). |
+| ssys:phase_angle | number | A measure of the relationship between the instrument viewing position and incident illumination (such as solar light). Measured at the target, it is the angle between a vector to the illumination source and a vector to the instrument. If illumination is from behind the instrument, the phase angle is small. Range: 0-180°. Source: [`geom:phase_angle`](https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s121.html). |
+| ssys:sub_solar_azimuth | number | The angle between the line from the center of an image to the subsolar point on the target and a horizontal reference line (in the image plane) extending from the image center to the middle right edge of the image, increasing clockwise. Range: 0-360°. Source: [`geom:subsolar_azimuth`](https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s203.html). |
+| ssys:sub_solar_latitude | number | The planetocentric latitude of the subsolar point on the target. Range: -90 to 90°. Source: [`geom:subsolar_latitude`](https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s204.html). |
+| ssys:sub_solar_longitude | number | The planetocentric longitude of the subsolar point on the target. Range: 0-360°. Source: [`geom:subsolar_longitude`](https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s205.html). |
+| ssys:sub_spacecraft_latitude | number | The planetocentric latitude of the sub-spacecraft point on the target. Range: -90 to 90°. Source: [`geom:subspacecraft_latitude`](https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s207.html). |
+| ssys:sub_spacecraft_longitude | number | The planetocentric longitude of the sub-spacecraft point on the target. Range: 0-360°. Source: [`geom:subspacecraft_longitude`](https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s208.html). |
+
+The geometry and illumination fields are sourced from the [NASA PDS4 Data Dictionary](https://pds.nasa.gov/datastandards/dictionaries/).
 
 ### Additional Field Information
 
@@ -95,6 +108,27 @@ Accepted values are:
 - spacejunk
 - star
 - calibration
+
+#### Geometry and illumination angles
+
+The figures below illustrate the angle conventions of the geometry and illumination fields. Definitions and ranges
+follow the [NASA PDS4 Data Dictionary](https://pds.nasa.gov/datastandards/dictionaries/).
+
+`ssys:incidence_angle`, `ssys:emission_angle` and `ssys:phase_angle` are measured at the intercept point on the
+target surface:
+
+![Incidence, emission and phase angles](docs/photometric-angles.svg)
+
+`ssys:north_azimuth` and `ssys:sub_solar_azimuth` give the direction of the north pole and of the subsolar point as
+seen in the image, which is generally not oriented north up. They are measured in the image plane, from a horizontal
+reference line going from the image center to the middle of the right edge, increasing clockwise. In the example
+below, the image footprint is rotated by 20° on the target, so north appears at 250° instead of 270° (north up):
+
+![North and subsolar azimuths](docs/image-azimuths.svg)
+
+`ssys:solar_longitude` measures the position of the target body along its orbit, from the vernal equinox:
+
+![Solar longitude](docs/solar-longitude.svg)
 
 ## Contributing
 
