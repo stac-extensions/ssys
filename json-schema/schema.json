@@ -121,67 +121,67 @@
     },
     "ssys:north_azimuth": {
       "type": "number",
-      "description": "The angle between a line from the image center to the north pole and a horizontal reference line from the image center to the middle of the right edge, increasing clockwise, with the image displayed according to its declared display direction. Range: 0–360°.\nSource: NASA PDS4 Data Dictionary, geom:north_azimuth (class Object_Orientation_North_East).",
+      "description": "The angle between a line from the image center to the north pole and a horizontal reference line from the image center to the middle of the right edge, increasing clockwise, with the image displayed according to its declared display direction. Range: 0–360°.\nSource: NASA PDS4 Data Dictionary, geom:north_azimuth (class Object_Orientation_North_East), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s119.html",
       "minimum": 0.0,
       "maximum": 360.0
     },
     "ssys:solar_longitude": {
       "type": "number",
-      "description": "The angle between the body–Sun line at the time of interest and the body–Sun line at the vernal equinox, giving a measure of the season on the target body. Range: 0–360°.\nSource: NASA PDS4 Data Dictionary, lro:start_solar_longitude (class LRO_Parameters).",
+      "description": "The angle between the body–Sun line at the time of interest and the body–Sun line at its vernal equinox, giving a measure of the season on the target body. Range: 0–360°.\nSource: NASA PDS4 Data Dictionary, pds:solar_longitude (class Time_Coordinates), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch05s840.html",
       "minimum": 0.0,
       "maximum": 360.0
     },
     "ssys:local_true_solar_time": {
       "type": "number",
-      "description": "The local time on a rotating body, equal to 12 h at the subsolar point and increasing by 1 h for every 15° of east longitude away from it, for prograde rotation. In ssys: decimal hours, range 0–24 (PDS4 uses a string).\nSource: NASA PDS4 Data Dictionary, pds:local_true_solar_time (class Time_Coordinates).",
+      "description": "The local time on a rotating body, equal to 12 h at the subsolar point and increasing by 1 h for every 15° of east longitude away from it, for prograde rotation. In ssys: decimal hours, range 0–24 (PDS4 uses a string).\nSource: NASA PDS4 Data Dictionary, pds:local_true_solar_time (class Time_Coordinates), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch05s438.html",
       "minimum": 0.0,
       "maximum": 24.0
     },
     "ssys:emission_angle": {
       "type": "number",
-      "description": "The angle, measured at the intercept point, between the local surface normal and the direction of light leaving the surface toward the instrument. It is 0° for nadir viewing and 90° at the limb; higher values mean more oblique viewing. Range: 0–90° for surfaces.\nSource: NASA PDS4 Data Dictionary, geom:emission_angle (class Derived_Geometry).",
+      "description": "The angle between the surface normal vector at the intercept point and a vector from the intercept point to the spacecraft. It varies from 0° when the spacecraft is viewing the subspacecraft point (nadir viewing) to 90° when the intercept is tangent to the surface of the target body; higher values indicate more oblique viewing. For ring data, values from 90 to 180° indicate viewing on the unlit side, from oblique or edge-on at 90° to the unlit nadir at 180°. Range: 0–180°.\nSource: NASA PDS4 Data Dictionary, geom:emission_angle (class Derived_Geometry), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s34.html",
       "minimum": 0.0,
-      "maximum": 90.0
+      "maximum": 180.0
     },
     "ssys:incidence_angle": {
       "type": "number",
-      "description": "The angle, measured at the intercept point, between the direction of incoming light and the local surface normal. It ranges from 0° when the intercept point coincides with the subsolar point to 90° when the line of sight is tangent to the target’s surface. Range: 0–90° for surfaces.\nSource: NASA PDS4 Data Dictionary, geom:incidence_angle (class Derived_Geometry).",
+      "description": "A measure of the lighting condition at the intercept point: the angle between the local vertical at the intercept point (surface) and a vector from the intercept point to the Sun. It varies from 0° when the intercept point coincides with the subsolar point to 90° when the intercept point is at the terminator; values above 90° correspond to the shadowed or dark portion of the target body. Range: 0–180°.\nSource: NASA PDS4 Data Dictionary, geom:incidence_angle (class Derived_Geometry), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s48.html",
       "minimum": 0.0,
-      "maximum": 90.0
+      "maximum": 180.0
     },
     "ssys:phase_angle": {
       "type": "number",
-      "description": "The angle, measured at the intercept point, between the direction of incoming light from the source and the direction of outgoing light toward the instrument. It is small when the light source is behind the instrument. Range: 0–180°.\nSource: NASA PDS4 Data Dictionary, geom:phase_angle (class Illumination_Specific).",
+      "description": "A measure of the relationship between the instrument viewing position and incident illumination (such as solar light). Measured at the target, it is the angle between a vector to the illumination source and a vector to the instrument. If illumination is from behind the instrument, the phase angle is small. Range: 0–180°.\nSource: NASA PDS4 Data Dictionary, geom:phase_angle (class Illumination_Specific), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s121.html",
       "minimum": 0.0,
       "maximum": 180.0
     },
     "ssys:sub_solar_azimuth": {
       "type": "number",
-      "description": "The angle between a line from the image center to the subsolar point and a horizontal reference line toward the middle of the right edge, increasing clockwise. Range: 0–360°.\nSource: NASA PDS4 Data Dictionary, geom:subsolar_azimuth (class Surface_Geometry_Specific).",
+      "description": "The angle between the line from the center of an image to the subsolar point on the target and a horizontal reference line (in the image plane) extending from the image center to the middle right edge of the image, increasing clockwise. Range: 0–360°.\nSource: NASA PDS4 Data Dictionary, geom:subsolar_azimuth (class Surface_Geometry_Specific), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s203.html",
       "minimum": 0.0,
       "maximum": 360.0
     },
     "ssys:sub_solar_latitude": {
       "type": "number",
-      "description": "The planetocentric latitude of the subsolar point on the target. Range: −90 to 90°.\nSource: NASA PDS4 Data Dictionary, geom:subsolar_latitude (class Surface_Geometry_Specific).",
+      "description": "The planetocentric latitude of the subsolar point on the target. Range: −90 to 90°.\nSource: NASA PDS4 Data Dictionary, geom:subsolar_latitude (class Surface_Geometry_Specific), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s204.html",
       "minimum": -90.0,
       "maximum": 90.0
     },
     "ssys:sub_solar_longitude": {
       "type": "number",
-      "description": "The planetocentric longitude of the subsolar point on the target. Range: 0–360°.\nSource: NASA PDS4 Data Dictionary, geom:subsolar_longitude (class Surface_Geometry_Specific).",
+      "description": "The planetocentric longitude of the subsolar point on the target. Range: 0–360°.\nSource: NASA PDS4 Data Dictionary, geom:subsolar_longitude (class Surface_Geometry_Specific), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s205.html",
       "minimum": 0.0,
       "maximum": 360.0
     },
     "ssys:sub_spacecraft_latitude": {
       "type": "number",
-      "description": "The planetocentric latitude of the sub-spacecraft point on the target. Range: −90 to 90°.\nSource: NASA PDS4 Data Dictionary, geom:subspacecraft_latitude (class Surface_Geometry_Specific).",
+      "description": "The planetocentric latitude of the sub-spacecraft point on the target. Range: −90 to 90°.\nSource: NASA PDS4 Data Dictionary, geom:subspacecraft_latitude (class Surface_Geometry_Specific), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s207.html",
       "minimum": -90.0,
       "maximum": 90.0
     },
     "ssys:sub_spacecraft_longitude": {
       "type": "number",
-      "description": "The planetocentric longitude of the sub-spacecraft point on the target. Range: 0–360°.\nSource: NASA PDS4 Data Dictionary, geom:subspacecraft_longitude (class Surface_Geometry_Specific).",
+      "description": "The planetocentric longitude of the sub-spacecraft point on the target. Range: 0–360°.\nSource: NASA PDS4 Data Dictionary, geom:subspacecraft_longitude (class Surface_Geometry_Specific), https://pds.nasa.gov/datastandards/documents/dd/v1/PDS4_PDS_DD_1Q00/ch37s208.html",
       "minimum": 0.0,
       "maximum": 360.0
     },

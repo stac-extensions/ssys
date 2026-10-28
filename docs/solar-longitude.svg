@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420" font-family="Helvetica, Arial, sans-serif">
+  <title>Solar longitude</title>
+  <style>
+    .ink { fill: #24292f; }
+    .line { stroke: #57606a; fill: none; }
+    .muted { fill: #57606a; }
+    .body { fill: #57606a; }
+    .ghost { fill: none; stroke: #57606a; }
+    .s-ls { stroke: #8250df; fill: none; }
+    .f-ls { fill: #8250df; }
+    .s-sun { stroke: #bf6c00; fill: none; }
+    .f-sun { fill: #bf6c00; }
+    .s-target { stroke: #0969da; fill: none; }
+    .f-target { fill: #0969da; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #e6edf3; }
+      .line { stroke: #9198a1; }
+      .muted { fill: #9198a1; }
+      .body { fill: #9198a1; }
+      .ghost { stroke: #9198a1; }
+      .s-ls { stroke: #ab7df8; }
+      .f-ls { fill: #ab7df8; }
+      .s-sun { stroke: #f0a63a; }
+      .f-sun { fill: #f0a63a; }
+      .s-target { stroke: #4c9cf0; }
+      .f-target { fill: #4c9cf0; }
+    }
+  </style>
+  <defs>
+    <marker id="arrow-ls" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="f-ls"/>
+    </marker>
+    <marker id="arrow-orbit" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="muted"/>
+    </marker>
+  </defs>
+
+  <!-- Orbit, seen from above the north pole of the orbit -->
+  <circle cx="320" cy="215" r="160" class="line" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <path d="M458.6,135 A160,160 0 0,0 400,76.4" class="line" stroke-width="2" marker-end="url(#arrow-orbit)"/>
+  <text x="470" y="98" font-size="11" class="muted">orbital motion</text>
+
+  <!-- Sun -->
+  <circle cx="320" cy="215" r="14" class="f-sun"/>
+  <text x="320" y="248" font-size="13" text-anchor="middle" class="ink">Sun</text>
+
+  <!-- Body–Sun line at the vernal equinox (Ls = 0°) -->
+  <line x1="320" y1="215" x2="471" y2="215" class="line" stroke-width="1.5"/>
+  <circle cx="480" cy="215" r="9" class="ghost" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <text x="496" y="211" font-size="12" class="muted">
+    <tspan x="496">body at the</tspan>
+    <tspan x="496" dy="14">vernal equinox</tspan>
+  </text>
+
+  <!-- Body–Sun line at the time of interest (Ls = 110°) -->
+  <line x1="320" y1="215" x2="265.3" y2="64.6" class="s-target" stroke-width="2"/>
+  <circle cx="265.3" cy="64.6" r="9" class="f-target"/>
+  <text x="250" y="40" font-size="12" text-anchor="middle" class="f-target">body at the time of interest</text>
+
+  <!-- Solar longitude arc -->
+  <path d="M375,215 A55,55 0 0,0 301.2,163.3" class="s-ls" stroke-width="2" marker-end="url(#arrow-ls)"/>
+  <text x="362" y="168" font-size="15" font-style="italic" font-weight="bold" class="f-ls">L<tspan font-size="11" dy="4">s</tspan></text>
+
+  <!-- Seasonal markers -->
+  <g font-size="11" class="muted">
+    <text x="320" y="394" text-anchor="middle">Ls = 270°</text>
+    <text x="320" y="408" text-anchor="middle">northern winter solstice</text>
+    <text x="150" y="211" text-anchor="end">Ls = 180°</text>
+    <text x="150" y="225" text-anchor="end">autumnal equinox</text>
+    <text x="340" y="48">Ls = 90°</text>
+  </g>
+  <g class="body">
+    <circle cx="320" cy="55" r="3"/>
+    <circle cx="160" cy="215" r="3"/>
+    <circle cx="320" cy="375" r="3"/>
+  </g>
+
+  <!-- Legend -->
+  <text x="20" y="346" font-size="13" class="f-ls"><tspan font-style="italic" font-weight="bold">L<tspan font-size="10" dy="3">s</tspan></tspan><tspan dy="-3"> solar_longitude</tspan></text>
+  <text x="20" y="366" font-size="11" class="muted">
+    <tspan x="20">(110° in this example)</tspan>
+    <tspan x="20" dy="18">Ls = 90°: northern summer solstice</tspan>
+  </text>
+</svg>
