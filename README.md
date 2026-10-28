@@ -1,7 +1,7 @@
 # Solar System Extension Specification
 
 - **Title:** Solar System
-- **Identifier:** <https://stac-extensions.github.io/ssys/v1.1.1/schema.json>
+- **Identifier:** <https://stac-extensions.github.io/ssys/v1.2.0/schema.json>
 - **Field Name Prefix:** ssys
 - **Scope:** Item, Catalog, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/README.md#extension-maturity):** Proposal
@@ -27,6 +27,17 @@ Surveyor), or derived data sets like digital elevation models (DEM/DTM).
 | ssys:targets    | \[string\]    | Array to hold list of target bodies (e.g. Mars, Moon, Earth) conforming to the [International Virtual Observatory Alliance](https://www.ivoa.net/documents/EPNTAP/20220822/REC-EPNTAP-2.0.html#tth_sEc2.1.3) target name specification. |
 | ssys:local_time  | string      | Lexicographically sortable time string (e.g., 01:115:12.343) |
 | ssys:target_class | string | The identity of the type of the target as defined by the [International Virtual Observatory Alliance](https://www.ivoa.net/documents/EPNTAP/20220822/REC-EPNTAP-2.0.html#tth_sEc2.1.3) |
+| ssys:north_azimuth | number | The angle between a line from the image center to the north pole and a horizontal reference line from the image center to the middle of the right edge, increasing clockwise, with the image displayed according to its declared display direction. Range: 0-360°. |
+| ssys:solar_longitude | number | The angle between the body-Sun line at the time of interest and the body-Sun line at the vernal equinox, giving a measure of the season on the target body. Range: 0-360°. |
+| ssys:local_true_solar_time | number | The local time on a rotating body, equal to 12 h at the subsolar point and increasing by 1 h for every 15° of east longitude away from it, for prograde rotation. Expressed in decimal hours, range 0-24. |
+| ssys:emission_angle | number | The angle, measured at the intercept point, between the local surface normal and the direction of light leaving the surface toward the instrument. It is 0° for nadir viewing and 90° at the limb. Range: 0-90° for surfaces. |
+| ssys:incidence_angle | number | The angle, measured at the intercept point, between the direction of incoming light and the local surface normal. It ranges from 0° when the intercept point coincides with the subsolar point to 90° when the line of sight is tangent to the target's surface. Range: 0-90° for surfaces. |
+| ssys:phase_angle | number | The angle, measured at the intercept point, between the direction of incoming light from the source and the direction of outgoing light toward the instrument. Range: 0-180°. |
+| ssys:sub_solar_azimuth | number | The angle between a line from the image center to the subsolar point and a horizontal reference line toward the middle of the right edge, increasing clockwise. Range: 0-360°. |
+| ssys:sub_solar_latitude | number | The planetocentric latitude of the subsolar point on the target. Range: -90 to 90°. |
+| ssys:sub_solar_longitude | number | The planetocentric longitude of the subsolar point on the target. Range: 0-360°. |
+| ssys:sub_spacecraft_latitude | number | The planetocentric latitude of the sub-spacecraft point on the target. Range: -90 to 90°. |
+| ssys:sub_spacecraft_longitude | number | The planetocentric longitude of the sub-spacecraft point on the target. Range: 0-360°. |
 
 ### Additional Field Information
 
@@ -95,6 +106,75 @@ Accepted values are:
 - spacejunk
 - star
 - calibration
+
+#### ssys:north_azimuth
+
+the field `ssys:north_azimuth` is the angle between a line from the image center to the north pole and a horizontal 
+reference line from the image center to the middle of the right edge, increasing clockwise, with the image displayed 
+according to its declared display direction. Range: 0-360°. Source: NASA PDS4 Data Dictionary, `geom:north_azimuth` 
+(class `Object_Orientation_North_East`).
+
+#### ssys:solar_longitude
+
+the field `ssys:solar_longitude` is the angle between the body-Sun line at the time of interest and the body-Sun line 
+at the vernal equinox, giving a measure of the season on the target body. Range: 0-360°. Source: NASA PDS4 Data 
+Dictionary, `lro:start_solar_longitude` (class `LRO_Parameters`).
+
+#### ssys:local_true_solar_time
+
+the field `ssys:local_true_solar_time` is the local time on a rotating body, equal to 12 h at the subsolar point and 
+increasing by 1 h for every 15° of east longitude away from it, for prograde rotation. It is expressed in ssys as 
+decimal hours, in the range 0-24. Source: NASA PDS4 Data Dictionary, `pds:local_true_solar_time` (class 
+`Time_Coordinates`), where it is encoded as a string.
+
+#### ssys:emission_angle
+
+the field `ssys:emission_angle` is the angle, measured at the intercept point, between the local surface normal and 
+the direction of light leaving the surface toward the instrument. It is 0° for nadir viewing and 90° at the limb; 
+higher values mean more oblique viewing. Range: 0-90° for surfaces. Source: NASA PDS4 Data Dictionary, 
+`geom:emission_angle` (class `Derived_Geometry`).
+
+#### ssys:incidence_angle
+
+the field `ssys:incidence_angle` is the angle, measured at the intercept point, between the direction of incoming 
+light and the local surface normal. It ranges from 0° when the intercept point coincides with the subsolar point to 
+90° when the line of sight is tangent to the target's surface. Range: 0-90° for surfaces. Source: NASA PDS4 Data 
+Dictionary, `geom:incidence_angle` (class `Derived_Geometry`).
+
+#### ssys:phase_angle
+
+the field `ssys:phase_angle` is the angle, measured at the intercept point, between the direction of incoming light 
+from the source and the direction of outgoing light toward the instrument. It is small when the light source is 
+behind the instrument. Range: 0-180°. Source: NASA PDS4 Data Dictionary, `geom:phase_angle` (class 
+`Illumination_Specific`).
+
+#### ssys:sub_solar_azimuth
+
+the field `ssys:sub_solar_azimuth` is the angle between a line from the image center to the subsolar point and a 
+horizontal reference line toward the middle of the right edge, increasing clockwise. Range: 0-360°. Source: NASA 
+PDS4 Data Dictionary, `geom:subsolar_azimuth` (class `Surface_Geometry_Specific`).
+
+#### ssys:sub_solar_latitude
+
+the field `ssys:sub_solar_latitude` is the planetocentric latitude of the subsolar point on the target. Range: -90 
+to 90°. Source: NASA PDS4 Data Dictionary, `geom:subsolar_latitude` (class `Surface_Geometry_Specific`).
+
+#### ssys:sub_solar_longitude
+
+the field `ssys:sub_solar_longitude` is the planetocentric longitude of the subsolar point on the target. Range: 
+0-360°. Source: NASA PDS4 Data Dictionary, `geom:subsolar_longitude` (class `Surface_Geometry_Specific`).
+
+#### ssys:sub_spacecraft_latitude
+
+the field `ssys:sub_spacecraft_latitude` is the planetocentric latitude of the sub-spacecraft point on the target. 
+Range: -90 to 90°. Source: NASA PDS4 Data Dictionary, `geom:subspacecraft_latitude` (class 
+`Surface_Geometry_Specific`).
+
+#### ssys:sub_spacecraft_longitude
+
+the field `ssys:sub_spacecraft_longitude` is the planetocentric longitude of the sub-spacecraft point on the 
+target. Range: 0-360°. Source: NASA PDS4 Data Dictionary, `geom:subspacecraft_longitude` (class 
+`Surface_Geometry_Specific`).
 
 ## Contributing
 
